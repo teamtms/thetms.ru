@@ -9,13 +9,29 @@
 	color: #fff;
 	margin: 16px;
 	border-radius: 16px;
+}
+
+.title {
+	background-color: #fff;
+	color: #000;
+	line-height: 200%;
+	padding-top: 4px;
+	padding-inline: 16px;
+	border-radius: 16px;
+	margin-bottom: 32px;
+}
+
+.user {
 	display: flex;
 	gap: 32px;
 }
 
 .avatar {
-	border-radius: 8px;
+	border-radius: 16px;
 	border: #444 1px solid;
+	width: 300px;
+	object-fit: cover;
+	height: 300px;
 }
 
 .data {
@@ -23,6 +39,5 @@
 }
 
 .value {
-
 	text-transform: lowercase;
 }

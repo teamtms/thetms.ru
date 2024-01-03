@@ -23,23 +23,25 @@ const Passport = () => {
 
 	return (
 		<div className={styles.passport}>
-			<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
-			<div className={styles.data}>
-				<div className={styles.block}>
-					<span className={styles.username}>{data[0].title.rendered}</span>
-					<span className={styles.username}>(#{data[0].id})</span>
-				</div>
-				<div className={styles.block}>
-					<strong className={styles.title}>Фракция: </strong>
-					<span className={styles.value}>{data[0].acf.fraction}</span>
-				</div>
-				<div className={styles.block}>
-					<strong className={styles.title}>Роль: </strong>
-					<span className={styles.value}>{data[0].acf.role}</span>
-				</div>
-				<div className={styles.block}>
-					<strong className={styles.title}>Статус: </strong>
-					<span className={styles.value}>{data[0].acf.status === 'admin' ? 'Администратор' : 'Пользователь'}</span>
+			<h2 className={styles.title}>Паспорт гражданина ТМС #{data[0].id}</h2>
+			<div className={styles.user}>
+				<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
+				<div className={styles.data}>
+					<div className={styles.block}>
+						<span className={styles.username}>{data[0].title.rendered}</span>
+					</div>
+					<div className={styles.block}>
+						<strong className={styles.label}>Фракция: </strong>
+						<span className={styles.value}>{data[0].acf.fraction}</span>
+					</div>
+					<div className={styles.block}>
+						<strong className={styles.label}>Роль: </strong>
+						<span className={styles.value}>{data[0].acf.role}</span>
+					</div>
+					<div className={styles.block}>
+						<strong className={styles.label}>Статус: </strong>
+						<span className={styles.value}>{data[0].acf.status === 'admin' ? 'Администратор' : 'Пользователь'}</span>
+					</div>
 				</div>
 			</div>
 		</div>
