@@ -22,5 +22,5 @@ export const WpImage = ({ imageId, ...props }: WpImageProps) => {
 
 	if (isLoading) return <>Загрузка...</>
 	if (error) return <>Ошибка</>
-	if (data) return <><img src={data.guid.rendered} alt={`image #${imageId}`} {...props} /></>
+	if (data) return <><img src={data.guid?.rendered} alt={`image #${imageId}`} {...props} /></>
 }

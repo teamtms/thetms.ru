@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import styles from './Passport.module.scss'
 import { WpImage } from '../../components/WpImage/WpImage.component'
+import { Card } from '@fluentui/react-components'
+import { Container } from '../../components/Container/Container.component'
 
 const request = async (url: string) => {
 	const response = await fetch(url)
@@ -22,29 +24,31 @@ const Passport = () => {
 	if (error) return <>{error.message}</>
 
 	return (
-		<div className={styles.passport}>
-			<h2 className={styles.title}>Паспорт гражданина ТМС #{data[0].id}</h2>
-			<div className={styles.user}>
-				<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
-				<div className={styles.data}>
-					<div className={styles.block}>
-						<span className={styles.username}>{data[0].title.rendered}</span>
-					</div>
-					<div className={styles.block}>
-						<strong className={styles.label}>Фракция: </strong>
-						<span className={styles.value}>{data[0].acf.fraction}</span>
-					</div>
-					<div className={styles.block}>
-						<strong className={styles.label}>Роль: </strong>
-						<span className={styles.value}>{data[0].acf.role}</span>
-					</div>
-					<div className={styles.block}>
-						<strong className={styles.label}>Статус: </strong>
-						<span className={styles.value}>{data[0].acf.status === 'admin' ? 'Администратор' : 'Пользователь'}</span>
+		<Container>
+			<Card className={styles.passport}>
+				<h2 className={styles.title}>Паспорт гражданина ТМС #{data[0].id}</h2>
+				<div className={styles.user}>
+					<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
+					<div className={styles.data}>
+						<div>
+							<span>{data[0].title.rendered}</span>
+						</div>
+						<div>
+							<strong>Фракция: </strong>
+							<span className={styles.value}>{data[0].acf.fraction}</span>
+						</div>
+						<div>
+							<strong>Роль: </strong>
+							<span className={styles.value}>{data[0].acf.role}</span>
+						</div>
+						<div>
+							<strong>Статус: </strong>
+							<span className={styles.value}>{data[0].acf.status === 'admin' ? 'Администратор' : 'Пользователь'}</span>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</Card>
+		</Container>
 	)
 }
 

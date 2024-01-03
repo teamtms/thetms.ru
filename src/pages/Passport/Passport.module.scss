@@ -1,14 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P:regular');
-
 .passport {
 	font-family: 'Press Start 2P', sans-serif;
 	font-size: 18px;
 	line-height: 150%;
-	padding: 32px;
-	background-color: #111;
-	color: #fff;
-	margin: 16px;
-	border-radius: 16px;
 }
 
 .title {
@@ -17,7 +10,7 @@
 	line-height: 200%;
 	padding-top: 4px;
 	padding-inline: 16px;
-	border-radius: 16px;
+	border-radius: 8px;
 	margin-bottom: 32px;
 }
 
@@ -27,7 +20,7 @@
 }
 
 .avatar {
-	border-radius: 16px;
+	border-radius: 8px;
 	border: #444 1px solid;
 	width: 300px;
 	object-fit: cover;
