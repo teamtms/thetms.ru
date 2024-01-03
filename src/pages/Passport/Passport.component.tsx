@@ -1,0 +1,49 @@
+import { useQuery } from '@tanstack/react-query'
+import { useParams } from 'react-router-dom'
+
+import styles from './Passport.module.scss'
+import { WpImage } from '../../components/WpImage/WpImage.component'
+
+const request = async (url: string) => {
+	const response = await fetch(url)
+	const json = await response.json()
+
+	return json
+}
+
+const Passport = () => {
+	const { username } = useParams()
+	const { data, error, isLoading } = useQuery({
+		queryKey: [`passport-${username}`],
+		queryFn: () => request(`https://www.fb24m.ru/tms/wp-json/wp/v2/profile?slug=${username}`)
+	})
+
+	if (isLoading) return <>Загрузка...</>
+	if (error) return <>{error.message}</>
+
+	return (
+		<div className={styles.passport}>
+			<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
+			<div className={styles.data}>
+				<div className={styles.block}>
+					<span className={styles.username}>{data[0].title.rendered}</span>
+					<span className={styles.username}>(#{data[0].id})</span>
+				</div>
+				<div className={styles.block}>
+					<strong className={styles.title}>Фракция: </strong>
+					<span className={styles.value}>{data[0].acf.fraction}</span>
+				</div>
+				<div className={styles.block}>
+					<strong className={styles.title}>Роль: </strong>
+					<span className={styles.value}>{data[0].acf.role}</span>
+				</div>
+				<div className={styles.block}>
+					<strong className={styles.title}>Статус: </strong>
+					<span className={styles.value}>{data[0].acf.status === 'admin' ? 'Администратор' : 'Пользователь'}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+export default Passport
