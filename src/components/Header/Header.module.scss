@@ -1,0 +1,22 @@
+.title {
+	user-select: none;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.link {
+	user-select: none;
+}
+
+.menu {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px 32px;
+}
