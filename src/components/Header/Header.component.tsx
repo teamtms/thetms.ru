@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
 
-import { Button, Title1, Link as FluentLink, Body1Strong } from '@fluentui/react-components'
+import { Link as FluentLink, Body1Strong } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'

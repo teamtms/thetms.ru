@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import styles from './Article.module.scss'
+// import styles from './Article.module.scss'
 import { useParams } from 'react-router-dom'
 import { wordpress } from '@/services/wordpress'
 import { Card, Spinner, Title2 } from '@fluentui/react-components'
