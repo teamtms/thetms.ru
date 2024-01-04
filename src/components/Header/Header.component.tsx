@@ -1,9 +1,11 @@
 import styles from './Header.module.scss'
 
-import { Link as FluentLink, Body1Strong } from '@fluentui/react-components'
+import { Body1Strong, TabList, Tab } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+
+import { HomeRegular, MoneyRegular, SendRegular } from '@fluentui/react-icons'
 
 const getRandomI = <T,>(array: T[]) => {
 	return array[Math.floor(Math.random() * array.length)]
@@ -32,18 +34,17 @@ const Header = () => {
 		<header>
 			<Container className={styles.header}>
 				<Body1Strong className={styles.title} onClick={() => { toggleTitle() }}>{title}</Body1Strong>
-				<ul className={styles.menu}>
-					<li className={styles.item}>
-						<FluentLink><Link className={styles.link} to="/">Главная</Link></FluentLink>
-					</li>
-					<li className={styles.item}>
-						<FluentLink><Link className={styles.link} to="/fines">Штрафы</Link></FluentLink>
-					</li>
-					<li className={styles.item}>
-						<FluentLink><Link className={styles.link} to="/send">Вебхуки</Link></FluentLink>
-					</li>
-
-				</ul>
+				<TabList>
+					<Tab value="home" icon={<HomeRegular />}>
+						<Link className={styles.link} to="/">Главная</Link>
+					</Tab>
+					<Tab value="fines" icon={<MoneyRegular />}>
+						<Link className={styles.link} to="/fines">Штрафы</Link>
+					</Tab>
+					<Tab value="send" icon={<SendRegular />}>
+						<Link className={styles.link} to="/send">Вебхуки</Link>
+					</Tab>
+				</TabList>
 			</Container>
 		</header>
 	)

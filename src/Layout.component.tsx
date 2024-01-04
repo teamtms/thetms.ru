@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Suspense, lazy } from 'react'
 import { Outlet } from 'react-router-dom'
 import './Layout.scss'
-import { FluentProvider, Spinner, webDarkTheme, webLightTheme } from '@fluentui/react-components'
-// import { Container } from './components/Container/Container.component'
+import { FluentProvider, Spinner } from '@fluentui/react-components'
+import { tmsDarkTheme, tmsLightTheme } from './themes/tmsTheme'
 
 const Header = lazy(() => import('@/components/Header/Header.component'))
 
@@ -11,7 +11,7 @@ const queryClient = new QueryClient()
 
 export const Layout = () => {
 	return (
-		<FluentProvider className="provider" theme={localStorage.getItem('color-scheme') === 'dark' ? webDarkTheme : webLightTheme}>
+		<FluentProvider className="provider" theme={localStorage.getItem('color-scheme') === 'dark' ? tmsDarkTheme : tmsLightTheme}>
 			<QueryClientProvider client={queryClient}>
 				<Suspense fallback={<Spinner />}>
 					<Header />
