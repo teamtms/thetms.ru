@@ -18,8 +18,6 @@ export const WpImage = ({ imageId, ...props }: WpImageProps) => {
 		queryFn: () => request(`https://www.fb24m.ru/tms/wp-json/wp/v2/media/${imageId}`)
 	})
 
-	console.log(data)
-
 	if (isLoading) return <>Загрузка...</>
 	if (error) return <>Ошибка</>
 	if (data) return <><img src={data.guid?.rendered} alt={`image #${imageId}`} {...props} /></>

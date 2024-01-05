@@ -15,6 +15,7 @@ export const App = () => {
 					<Route path="/passport/:username" Component={Passport} />
 					<Route path="/fines" Component={Fines} />
 					<Route path="/post/:slug" Component={Article} />
+					<Route path="/archive/:page" Component={Home} />
 					<Route path="/" Component={Home} />
 					<Route path="/*" element={<>404 not found</>} />
 				</Route>

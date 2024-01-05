@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-// import styles from './Article.module.scss'
-import { Link, useParams } from 'react-router-dom'
+import styles from './Article.module.scss'
+import { useParams } from 'react-router-dom'
 import { wordpress } from '@/services/wordpress'
 import { Breadcrumb, BreadcrumbButton, BreadcrumbDivider, BreadcrumbItem, Card, Spinner, Title2 } from '@fluentui/react-components'
 import { Container } from '@/components/Container/Container.component'
+import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component'
 
 const Article = () => {
 	const params = useParams()
@@ -14,21 +15,21 @@ const Article = () => {
 
 	return (
 		<Container>
-			<Breadcrumb>
+			<Breadcrumb className={styles.breadcrumbs}>
 				<BreadcrumbItem>
-					<Link to="/">
+					<AnimateLink href="/">
 						<BreadcrumbButton>
 							ТМС
 						</BreadcrumbButton>
-					</Link>
+					</AnimateLink>
 				</BreadcrumbItem>
 				<BreadcrumbDivider />
 				<BreadcrumbItem>
-					<Link to="/">
+					<AnimateLink href="/">
 						<BreadcrumbButton>
 							Статьи
 						</BreadcrumbButton>
-					</Link>
+					</AnimateLink>
 				</BreadcrumbItem>
 				<BreadcrumbDivider />
 				<BreadcrumbItem>
@@ -37,12 +38,12 @@ const Article = () => {
 					</BreadcrumbButton>
 				</BreadcrumbItem>
 			</Breadcrumb>
-			<Card>
+			<Card size="large">
 				{isLoading ? <Spinner /> : ''}
 				{isError ? <>{error.message}</> : ''}
 				{isSuccess ? <>
 					<Title2>{data[0].title.rendered}</Title2>
-					<div className="content" dangerouslySetInnerHTML={{ __html: data[0].content.rendered }}></div>
+					<div className={styles.content} dangerouslySetInnerHTML={{ __html: data[0].content.rendered }}></div>
 				</> : ''}
 			</Card>
 		</Container>

@@ -6,7 +6,7 @@ import { IUser } from '@/interfaces/User.interface'
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
 export const wordpress = {
-	getPosts: async () => request<IPost[]>(`${API}/posts`),
+	getPosts: async (page: number = 1) => request<IPost[]>(`${API}/posts?per_page=10&page=${page}`),
 	getPostBySlug: async (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`),
 	getFines: async () => request<IFine[]>(`${API}/fine`),
 	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`)

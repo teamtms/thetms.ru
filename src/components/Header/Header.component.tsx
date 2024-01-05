@@ -2,10 +2,10 @@ import styles from './Header.module.scss'
 
 import { Body1Strong, TabList, Tab } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 import { HomeRegular, MoneyRegular, SendRegular } from '@fluentui/react-icons'
+import { AnimateLink } from '../AnimateLink/AnimateLink.component'
 
 const getRandomI = <T,>(array: T[]) => {
 	return array[Math.floor(Math.random() * array.length)]
@@ -35,15 +35,15 @@ export const Header = () => {
 				<Body1Strong className={styles.title} onClick={() => { toggleTitle() }}>{title}</Body1Strong>
 				<TabList defaultValue={"fines"} appearance="subtle" defaultSelectedValue={location.pathname}>
 					<Tab className={styles.tab} value="/" icon={<HomeRegular />}>
-						<Link className={styles.link} to="/"></Link>
+						<AnimateLink className={styles.link} href="/"></AnimateLink>
 						Главная
 					</Tab>
 					<Tab className={styles.tab} defaultChecked value="/fines" icon={<MoneyRegular />}>
-						<Link className={styles.link} to="/fines"></Link>
+						<AnimateLink className={styles.link} href="/fines"></AnimateLink>
 						Штрафы
 					</Tab>
 					<Tab className={styles.tab} value="/send" icon={<SendRegular />}>
-						<Link className={styles.link} to="/send"></Link>
+						<AnimateLink className={styles.link} href="/send"></AnimateLink>
 						Вебхуки
 					</Tab>
 				</TabList>
