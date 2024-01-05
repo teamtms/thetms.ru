@@ -1,6 +1,6 @@
-export interface IFine {
-	id: number
-	title: { rendered: string }
+import type { IWpItem } from './WpItem.interface'
+
+export interface IFine extends IWpItem {
 	content: { rendered: string }
 	acf: {
 		amount: number

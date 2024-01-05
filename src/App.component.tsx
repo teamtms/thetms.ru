@@ -6,6 +6,8 @@ const Passport = lazy(() => import('./pages/Passport/Passport.component'))
 const Home = lazy(() => import('./pages/Home/Home.component'))
 const Fines = lazy(() => import('./pages/Fines/Fines.component'))
 const Article = lazy(() => import('./pages/Article/Article.component'))
+const Documents = lazy(() => import('./pages/Documents/Documents.component'))
+const SingleDocument = lazy(() => import('./pages/Documents/[slug]/SingleDocument.component'))
 
 export const App = () => {
 	return (
@@ -16,6 +18,8 @@ export const App = () => {
 					<Route path="/fines" Component={Fines} />
 					<Route path="/post/:slug" Component={Article} />
 					<Route path="/archive/:page" Component={Home} />
+					<Route path="/documents" Component={Documents} />
+					<Route path="/documents/:slug" Component={SingleDocument} />
 					<Route path="/" Component={Home} />
 					<Route path="/*" element={<>404 not found</>} />
 				</Route>

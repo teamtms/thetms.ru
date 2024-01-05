@@ -4,7 +4,7 @@ import { Body1Strong, TabList, Tab } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
 import { useState } from 'react'
 
-import { HomeRegular, MoneyRegular, SendRegular } from '@fluentui/react-icons'
+import { HomeRegular, MoneyRegular, SendRegular, DocumentRegular } from '@fluentui/react-icons'
 import { AnimateLink } from '../AnimateLink/AnimateLink.component'
 
 const getRandomI = <T,>(array: T[]) => {
@@ -29,22 +29,28 @@ export const Header = () => {
 	const [title, setTitle] = useState(generateWords())
 	const toggleTitle = () => { setTitle(generateWords()) }
 
+	console.log()
+
 	return (
 		<header>
 			<Container className={styles.header}>
 				<Body1Strong className={styles.title} onClick={() => { toggleTitle() }}>{title}</Body1Strong>
-				<TabList defaultValue={"fines"} appearance="subtle" defaultSelectedValue={location.pathname}>
+				<TabList defaultValue={"fines"} appearance="subtle" defaultSelectedValue={location.pathname.split('/')[1]}>
 					<Tab className={styles.tab} value="/" icon={<HomeRegular />}>
 						<AnimateLink className={styles.link} href="/"></AnimateLink>
 						Главная
 					</Tab>
-					<Tab className={styles.tab} defaultChecked value="/fines" icon={<MoneyRegular />}>
+					<Tab className={styles.tab} defaultChecked value="fines" icon={<MoneyRegular />}>
 						<AnimateLink className={styles.link} href="/fines"></AnimateLink>
 						Штрафы
 					</Tab>
-					<Tab className={styles.tab} value="/send" icon={<SendRegular />}>
+					<Tab className={styles.tab} value="send" icon={<SendRegular />}>
 						<AnimateLink className={styles.link} href="/send"></AnimateLink>
 						Вебхуки
+					</Tab>
+					<Tab className={styles.tab} value="documents" icon={<DocumentRegular />}>
+						<AnimateLink className={styles.link} href="/documents"></AnimateLink>
+						Документы
 					</Tab>
 				</TabList>
 			</Container>

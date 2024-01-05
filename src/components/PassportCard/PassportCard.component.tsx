@@ -11,7 +11,7 @@ export const PassportCard = (props: PassportCardProps) => {
 	})
 
 	return (
-		<Card>
+		<Card size="large">
 			<Title3>Паспорт гражданина ТМС #{props.userId}</Title3>
 			{isLoading ? <Spinner /> : ''}
 			{isError ? <>{error.message}</> : ''}
