@@ -5,9 +5,10 @@ import { PassportCard } from '@/components/PassportCard/PassportCard.component';
 export const Fine = (props: FineProps) => {
 	return (
 		<Card size="large">
-			<Title2>{props.fine.title.rendered}</Title2>
+			<Title2>{props.fine.title.rendered} </Title2>
 			<div dangerouslySetInnerHTML={{ __html: props.fine.content.rendered }}></div>
-			<Title3>Сумма штрафа: {props.fine.acf.amount} руб ТМС</Title3>
+			<Title3>Сумма: {props.fine.acf.amount} руб ТМС</Title3>
+			<Title3>Номер: #{props.fine.id}</Title3>
 			<PassportCard userId={props.fine.acf.reciever}></PassportCard>
 		</Card>
 	)
