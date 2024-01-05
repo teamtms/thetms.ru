@@ -25,29 +25,29 @@ const generateWords = () => {
 	return `${getRandomI<string>(t_words)} ${getRandomI<string>(m_words)} ${getRandomI<string>(s_words)}`
 }
 
-const Header = () => {
+export const Header = () => {
 	const [title, setTitle] = useState(generateWords())
-
 	const toggleTitle = () => { setTitle(generateWords()) }
 
 	return (
 		<header>
 			<Container className={styles.header}>
 				<Body1Strong className={styles.title} onClick={() => { toggleTitle() }}>{title}</Body1Strong>
-				<TabList>
-					<Tab value="home" icon={<HomeRegular />}>
-						<Link className={styles.link} to="/">Главная</Link>
+				<TabList defaultValue={"fines"} appearance="subtle" defaultSelectedValue={location.pathname}>
+					<Tab className={styles.tab} value="/" icon={<HomeRegular />}>
+						<Link className={styles.link} to="/"></Link>
+						Главная
 					</Tab>
-					<Tab value="fines" icon={<MoneyRegular />}>
-						<Link className={styles.link} to="/fines">Штрафы</Link>
+					<Tab className={styles.tab} defaultChecked value="/fines" icon={<MoneyRegular />}>
+						<Link className={styles.link} to="/fines"></Link>
+						Штрафы
 					</Tab>
-					<Tab value="send" icon={<SendRegular />}>
-						<Link className={styles.link} to="/send">Вебхуки</Link>
+					<Tab className={styles.tab} value="/send" icon={<SendRegular />}>
+						<Link className={styles.link} to="/send"></Link>
+						Вебхуки
 					</Tab>
 				</TabList>
 			</Container>
 		</header>
 	)
 }
-
-export default Header

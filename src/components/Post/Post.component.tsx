@@ -2,7 +2,8 @@ import { Button, Card, Title2 } from '@fluentui/react-components'
 import styles from './Post.module.scss'
 import { IPost } from '../../interfaces/Post.interface.ts'
 import { Link } from 'react-router-dom'
-import { WpImage } from '../WpImage/WpImage.component';
+import { WpImage } from '../WpImage/WpImage.component'
+import { TextboxMoreRegular } from '@fluentui/react-icons'
 
 export const Post = (props: IPost) => {
 	return (
@@ -13,7 +14,7 @@ export const Post = (props: IPost) => {
 			<div className={styles.content}>
 				<Title2>{props.title.rendered}</Title2>
 				<div className={styles.excerpt} dangerouslySetInnerHTML={{ __html: props.excerpt.rendered }}></div>
-				<Link to={`/post/${props.slug}`}><Button appearance="primary">Читать полностью</Button></Link>
+				<Link to={`/post/${props.slug}`}><Button appearance="primary" icon={<TextboxMoreRegular />}>Читать полностью</Button></Link>
 			</div>
 		</Card>
 	)

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 // import styles from './Article.module.scss'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { wordpress } from '@/services/wordpress'
-import { Card, Spinner, Title2 } from '@fluentui/react-components'
+import { Breadcrumb, BreadcrumbButton, BreadcrumbDivider, BreadcrumbItem, Card, Spinner, Title2 } from '@fluentui/react-components'
 import { Container } from '@/components/Container/Container.component'
 
 const Article = () => {
@@ -14,6 +14,29 @@ const Article = () => {
 
 	return (
 		<Container>
+			<Breadcrumb>
+				<BreadcrumbItem>
+					<Link to="/">
+						<BreadcrumbButton>
+							ТМС
+						</BreadcrumbButton>
+					</Link>
+				</BreadcrumbItem>
+				<BreadcrumbDivider />
+				<BreadcrumbItem>
+					<Link to="/">
+						<BreadcrumbButton>
+							Статьи
+						</BreadcrumbButton>
+					</Link>
+				</BreadcrumbItem>
+				<BreadcrumbDivider />
+				<BreadcrumbItem>
+					<BreadcrumbButton current>
+						{isSuccess ? data[0].title.rendered : ''}
+					</BreadcrumbButton>
+				</BreadcrumbItem>
+			</Breadcrumb>
 			<Card>
 				{isLoading ? <Spinner /> : ''}
 				{isError ? <>{error.message}</> : ''}
