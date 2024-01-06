@@ -4,7 +4,7 @@ import { Body1Strong, TabList, Tab } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
 import { useState } from 'react'
 
-import { HomeRegular, MoneyRegular, SendRegular, DocumentRegular } from '@fluentui/react-icons'
+import { HomeRegular, MoneyRegular, SendRegular, DocumentRegular, AppsAddInRegular } from '@fluentui/react-icons'
 import { AnimateLink } from '../AnimateLink/AnimateLink.component'
 
 const getRandomI = <T,>(array: T[]) => {
@@ -51,6 +51,10 @@ export const Header = () => {
 					<Tab className={styles.tab} value="documents" icon={<DocumentRegular />}>
 						<AnimateLink className={styles.link} href="/documents"></AnimateLink>
 						Документы
+					</Tab>
+					<Tab className={styles.tab} value="mods" icon={<AppsAddInRegular />}>
+						<AnimateLink className={styles.link} href="/mods"></AnimateLink>
+						Моды
 					</Tab>
 				</TabList>
 			</Container>
