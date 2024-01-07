@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@fluentui/react-components": "^9.44.0",
+    "@prisma/client": "5.7.1",
     "@tanstack/react-query": "^5.17.1",
+    "prisma": "^5.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
