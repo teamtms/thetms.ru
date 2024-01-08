@@ -3,6 +3,7 @@ import { request } from '../functions/request'
 import type { IPost } from '../interfaces/Post.interface'
 import { IUser } from '@/interfaces/User.interface'
 import { IDocument } from '@/interfaces/Document.interface'
+import { IOrg } from '@/interfaces/Org.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
@@ -13,5 +14,7 @@ export const wordpress = {
 	searchDocuments: async (search: string) => request<IDocument[]>(`${API}/document?search=${search}`),
 	getDocumentBySlug: async (slug: string) => request<IDocument[]>(`${API}/document?slug=${slug}`),
 	getFines: async () => request<IFine[]>(`${API}/fine`),
-	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`)
+	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`),
+	getUserByName: async (username: string) => request<IUser>(`${API}/profile?slug=${username}`),
+	getOrgById: async (id: number) => request<IOrg>(`${API}/organization/${id}`)
 }
