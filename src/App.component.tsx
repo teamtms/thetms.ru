@@ -21,7 +21,7 @@ export const App = () => {
 					<Route path="/post/:slug" Component={Article} />
 					<Route path="/archive/:page" Component={Home} />
 					<Route path="/documents" Component={Documents} />
-					<Route path="/document/:slug" Component={SingleDocument} />
+					<Route path="/documents/:slug" Component={SingleDocument} />
 					<Route path="/mods" Component={Mods} />
 					<Route path="/tax/:username" Component={Tax} />
 					<Route path="/" Component={Home} />

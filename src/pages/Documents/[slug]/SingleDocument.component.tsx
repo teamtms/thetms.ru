@@ -24,9 +24,9 @@ const SingleDocument = () => {
 			{isSuccess && data.length > 0 && data.map((doc) =>
 				<Card size="large">
 					<Title3>{doc.title.rendered}</Title3>
-					<div className="content" dangerouslySetInnerHTML={{ __html: doc.content.rendered }}></div>
+					<div className={styles.content} dangerouslySetInnerHTML={{ __html: doc.content.rendered }}></div>
 					<div className={styles.parties}>
-						{doc.acf.parties.map((party) =>
+						{doc.acf.parties.length > 0 && doc.acf.parties.map((party) =>
 							<PassportCard userId={party} />
 						)}
 					</div>
