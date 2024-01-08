@@ -10,5 +10,6 @@ export interface IUser {
 		description: string
 		birth_date: string
 		married: boolean
+		owner_of: number[]
 	}
 }

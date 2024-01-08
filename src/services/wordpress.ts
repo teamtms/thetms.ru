@@ -15,6 +15,14 @@ export const wordpress = {
 	getDocumentBySlug: async (slug: string) => request<IDocument[]>(`${API}/document?slug=${slug}`),
 	getFines: async () => request<IFine[]>(`${API}/fine`),
 	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`),
-	getUserByName: async (username: string) => request<IUser>(`${API}/profile?slug=${username}`),
-	getOrgById: async (id: number) => request<IOrg>(`${API}/organization/${id}`)
+	getUserByName: async (username: string) => request<IUser[]>(`${API}/profile?slug=${username}`),
+	getOrgById: async (id: number) => request<IOrg>(`${API}/organization/${id}`),
+	// getOrgsByOwnerId: async (ownerId: number) => request<IOrg>(`${API}/organization`)
 }
+
+/**
+ * Options -MultiViews
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteRule ^ index.html [QSA,L]
+ */
