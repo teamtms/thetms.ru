@@ -1,0 +1,36 @@
+.passport {
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 18px;
+	line-height: 150%;
+}
+
+.title {
+	background-color: #fff;
+	color: #000;
+	line-height: 200%;
+	padding-top: 4px;
+	padding-inline: 16px;
+	border-radius: 8px;
+	margin-bottom: 32px;
+}
+
+.user {
+	display: flex;
+	gap: 32px;
+}
+
+.avatar {
+	border-radius: 8px;
+	border: #444 1px solid;
+	width: 300px;
+	object-fit: cover;
+	height: 300px;
+}
+
+.data {
+	padding-block: 16px;
+}
+
+.value {
+	text-transform: lowercase;
+}
