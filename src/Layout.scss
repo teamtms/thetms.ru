@@ -4,8 +4,6 @@
 	background-color: transparent;
 	border: 0;
 	outline: 0;
-	box-shadow: #000 20px 20px 20px;
-	border: #000 1px solid !important;
 }
 
 a {
@@ -13,10 +11,14 @@ a {
 	text-decoration: none;
 }
 
-body,
-.provider {
+.provider:not(.disable-nedodayn-theme) {
 	background: pink !important;
 	color: green !important;
+
+	* {
+		box-shadow: #000 20px 20px 20px;
+		border: #000 1px solid !important;
+	}
 }
 
 .provider {
