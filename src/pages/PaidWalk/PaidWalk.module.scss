@@ -18,7 +18,7 @@
 }
 
 .item {
-	background-color: #3A3C4E;
+	background-color: #181b24;
 	color: #fff;
 	padding: 20px;
 	border-radius: 16px;
@@ -70,9 +70,18 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	min-height: calc(100vh - 32px);
+	justify-content: center;
 }
 
 .avatar_image {
 	object-fit: cover;
 	height: 100%;
+}
+
+.wrapper {
+	background: #11141d;
+	height: 100vh;
+
+	overflow-y: auto;
 }

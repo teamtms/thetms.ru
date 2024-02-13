@@ -10,15 +10,11 @@ const queryClient = new QueryClient()
 
 export const Layout = () => {
 	return (
-		<FluentProvider className={`provider ${localStorage.getItem('disable-nedodayn-theme')}`} theme={localStorage.getItem('color-scheme') === 'dark' ? tmsDarkTheme : tmsLightTheme}>
-			<QueryClientProvider client={queryClient}>
-				<Header />
-				<Suspense fallback={<Spinner />}>
-					<main className="main">
-						<Outlet />
-					</main>
-				</Suspense>
-			</QueryClientProvider>
-		</FluentProvider>
+		<>
+			<Header />
+			<main className="main">
+				<Outlet />
+			</main>
+		</>
 	)
 }
