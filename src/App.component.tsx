@@ -17,11 +17,13 @@ const Posts = lazy(() => import('./pages/Articles/[page]/Articles.component'))
 const MetaArticles = lazy(() => import('./pages/Articles/Articles.component'))
 const Addons = lazy(() => import('./pages/Addons/Addons.component'))
 const Addon = lazy(() => import('./pages/Addon/Addon.component'))
+const PaidWalk = lazy(() => import('./pages/PaidWalk/PaidWalk.component'))
 
 export const App = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
+
 				<Route Component={Layout}>
 					<Route path="/profile/:username" Component={Passport} />
 					<Route path="/fines" Component={Fines} />
@@ -37,6 +39,7 @@ export const App = () => {
 					<Route path="/addons" Component={Addons} />
 					<Route path="/addons/:slug" Component={Addon} />
 					<Route path="/" Component={Home} />
+					<Route path="/paidwalk" Component={PaidWalk} />
 					<Route path="/*" element={<Container>404 not found</Container>} />
 				</Route>
 			</Routes>

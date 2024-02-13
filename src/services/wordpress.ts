@@ -7,6 +7,7 @@ import { IOrg } from '@/interfaces/Org.interface'
 import { ICategory } from '@/interfaces/Category.interface'
 import { IAddon } from '@/interfaces/Addon.interface'
 import { IMedia } from '@/interfaces/Media.interface'
+import { IPwOrder } from '@/interfaces/PwOrder.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
@@ -25,4 +26,5 @@ export const wordpress = {
 	getAddons: async () => request<IAddon[]>(`${API}/addons`),
 	getAddonBySlug: async (slug: string) => request<IAddon[]>(`${API}/addons?slug=${slug}`),
 	getMediaById: async (id: number) => request<IMedia>(`${API}/media/${id}`),
+	getPwOrders: async () => request<IPwOrder[]>(`${API}/paidwalk`),
 }

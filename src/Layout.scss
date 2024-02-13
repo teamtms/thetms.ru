@@ -11,16 +11,6 @@ a {
 	text-decoration: none;
 }
 
-.provider:not(.disable-nedodayn-theme) {
-	background: pink !important;
-	color: green !important;
-
-	* {
-		box-shadow: #000 20px 20px 20px;
-		border: #000 1px solid !important;
-	}
-}
-
 .provider {
 	min-height: 100vh;
 }
