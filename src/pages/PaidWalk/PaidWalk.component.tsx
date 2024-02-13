@@ -3,6 +3,7 @@ import { wordpress } from "@/services/wordpress"
 import { useQuery } from "@tanstack/react-query"
 import styles from './PaidWalk.module.scss'
 import { formatDate } from "@/functions/formatDate"
+import { WpImage } from "@/components/WpImage/WpImage.component"
 
 const PaidWalk = () => {
 	const { isLoading, data, error } = useQuery({
@@ -18,7 +19,9 @@ const PaidWalk = () => {
 				{data ? data.map((item) => <details className={styles.item} key={item.id}>
 					<summary className={styles.buyer}>
 						<div className={styles.avatar}>
-							<img src="avatar.jpg" alt="" />
+							{item.acf.avatar ? <WpImage className={styles.avatar_image} imageId={item.acf.avatar} /> :
+								<img src="avatar.jpg" alt="" />
+							}
 						</div>
 						<div className={styles.data}>
 							<h2 className={styles.buyer_name}>{item.acf.buyer}</h2>

@@ -6,5 +6,6 @@ export interface IPwOrder extends IWpItem {
 		buyer: string
 		budget: string
 		end_date: string
+		avatar: number
 	}
 }
