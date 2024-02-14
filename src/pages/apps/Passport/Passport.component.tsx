@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import styles from './Passport.module.scss'
 import { WpImage } from '../../../components/WpImage/WpImage.component'
-import { Card, Input } from '@fluentui/react-components'
+import { Input } from '@fluentui/react-components'
 import { Container } from '../../../components/Container/Container.component'
 import { useState } from 'react'
 import { Icon } from '@/components/Icon/Icon.component'
