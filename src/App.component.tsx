@@ -5,7 +5,7 @@ import { Layout } from './Layout.component'
 import { Container } from './components/Container/Container.component'
 import { Provider } from './Provider.component'
 
-const Passport = lazy(() => import('./pages/Passport/Passport.component'))
+const Passport = lazy(() => import('./pages/apps/Passport/Passport.component'))
 const Home = lazy(() => import('./pages/Home/Home.component'))
 const Fines = lazy(() => import('./pages/Fines/Fines.component'))
 const Article = lazy(() => import('./pages/Article/Article.component'))
@@ -18,7 +18,7 @@ const Posts = lazy(() => import('./pages/Articles/[page]/Articles.component'))
 const MetaArticles = lazy(() => import('./pages/Articles/Articles.component'))
 const Addons = lazy(() => import('./pages/Addons/Addons.component'))
 const Addon = lazy(() => import('./pages/Addon/Addon.component'))
-const PaidWalk = lazy(() => import('./pages/PaidWalk/PaidWalk.component'))
+const PaidWalk = lazy(() => import('./pages/apps/PaidWalk/PaidWalk.component'))
 
 export const App = () => {
 	return (
@@ -26,7 +26,6 @@ export const App = () => {
 			<Routes>
 				<Route Component={Provider}>
 					<Route Component={Layout}>
-						<Route path="/profile/:username" Component={Passport} />
 						<Route path="/fines" Component={Fines} />
 						<Route path="/article/:slug" Component={Article} />
 						<Route path="/archive/:page" Component={Home} />
@@ -42,7 +41,10 @@ export const App = () => {
 						<Route path="/" Component={Home} />
 						<Route path="/*" element={<Container>404 not found</Container>} />
 					</Route>
-					<Route path="/paidwalk" Component={PaidWalk} />
+					<Route path="/apps">
+						<Route path="/apps/paidwalk" Component={PaidWalk} />
+						<Route path="/apps/profile" Component={Passport} />
+					</Route>
 				</Route>
 			</Routes>
 		</BrowserRouter>

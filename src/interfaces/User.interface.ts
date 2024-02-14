@@ -11,6 +11,7 @@ export interface IUser {
 		birth_date: string
 		married: boolean
 		owner_of: number[]
+		additions: string
 	}
 }
 

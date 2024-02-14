@@ -1,0 +1,87 @@
+.passport {
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 18px;
+	line-height: 150%;
+}
+
+.wrapper {
+	min-height: 100vh;
+	background-color: #11141d;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 100%;
+}
+
+.additions {
+	margin-top: 8px;
+	display: flex;
+	gap: 8px;
+	margin-left: -4px;
+}
+
+.addition_icon {
+	width: 42px;
+	height: 42px;
+	font-size: 28px !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: help;
+	border-radius: 8px;
+	background-color: #0a224f;
+	border: #181b24 2px solid;
+
+	&:hover {
+		background-color: #181b24;
+	}
+}
+
+.card {
+	background-color: #181b24;
+	padding: 20px;
+	border-radius: 16px;
+	flex-basis: 100%;
+
+	&:hover {
+		background-color: #0a224f;
+	}
+}
+
+.title {
+	line-height: 200%;
+	// padding-top: 4px;
+	// padding-inline: 16px;
+	border-radius: 8px;
+	margin-bottom: 16px;
+}
+
+.user {
+	display: flex;
+	gap: 32px;
+}
+
+.avatar {
+	border-radius: 8px;
+	border: #444 1px solid;
+	width: 200px;
+	object-fit: cover;
+	height: 200px;
+}
+
+.username {
+	text-decoration: underline;
+}
+
+.data {
+	padding-block: 16px;
+	line-height: 170%;
+}
+
+.value {
+	text-transform: lowercase;
+}
