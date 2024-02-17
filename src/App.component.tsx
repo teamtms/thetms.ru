@@ -19,6 +19,7 @@ const MetaArticles = lazy(() => import('./pages/Articles/Articles.component'))
 const Addons = lazy(() => import('./pages/Addons/Addons.component'))
 const Addon = lazy(() => import('./pages/Addon/Addon.component'))
 const PaidWalk = lazy(() => import('./pages/apps/PaidWalk/PaidWalk.component'))
+const Platform = lazy(() => import('./pages/Platform/Platform.component'))
 
 export const App = () => {
 	return (
@@ -38,6 +39,7 @@ export const App = () => {
 						<Route path="/articles" Component={MetaArticles} />
 						<Route path="/addons" Component={Addons} />
 						<Route path="/addons/:slug" Component={Addon} />
+						<Route path="/platform" Component={Platform} />
 						<Route path="/" Component={Home} />
 						<Route path="/*" element={<Container>404 not found</Container>} />
 					</Route>
