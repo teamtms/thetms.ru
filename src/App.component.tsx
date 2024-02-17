@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from './Layout.component'
 import { Container } from './components/Container/Container.component'
 import { Provider } from './Provider.component'
+import { AppsLayout } from './pages/apps/Layout.component'
 
 const Passport = lazy(() => import('./pages/apps/Passport/Passport.component'))
 const Home = lazy(() => import('./pages/Home/Home.component'))
@@ -43,9 +44,9 @@ export const App = () => {
 						<Route path="/" Component={Home} />
 						<Route path="/*" element={<Container>404 not found</Container>} />
 					</Route>
-					<Route path="/apps">
+					<Route path="/apps" Component={AppsLayout}>
 						<Route path="/apps/paidwalk" Component={PaidWalk} />
-						<Route path="/apps/profile" Component={Passport} />
+						<Route path="/apps/passport/:username" Component={Passport} />
 					</Route>
 				</Route>
 			</Routes>

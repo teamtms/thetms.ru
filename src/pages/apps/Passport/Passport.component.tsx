@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 
 import styles from './Passport.module.scss'
-import { WpImage } from '../../../components/WpImage/WpImage.component'
-import { Input } from '@fluentui/react-components'
-import { Container } from '../../../components/Container/Container.component'
-import { useState } from 'react'
+import { WpImage } from '@/components/WpImage/WpImage.component'
+import { Container } from '@/components/Container/Container.component'
 import { Icon } from '@/components/Icon/Icon.component'
+import { useParams } from 'react-router-dom'
 
 const request = async (url: string) => {
 	const response = await fetch(url)
@@ -15,7 +14,7 @@ const request = async (url: string) => {
 }
 
 const Passport = () => {
-	const [username, setUsername] = useState('')
+	const { username } = useParams()
 	const { data, error, isLoading } = useQuery({
 		queryKey: [`passport-${username}`],
 		queryFn: () => request(`https://www.fb24m.ru/tms/wp-json/wp/v2/profile?slug=${username}`)
@@ -56,21 +55,7 @@ const Passport = () => {
 									</ul>
 								</div>
 							</div>
-						</div> : <form onSubmit={(e) => {
-							e.preventDefault()
-							if (((document.querySelector('#code')! as HTMLInputElement).value) === '777800') {
-								setUsername((document.querySelector('#username')! as HTMLInputElement).value)
-							}
-							else {
-								const hint = document.querySelector('#hint')
-								if (hint) { hint.innerHTML = 'Неверный код' }
-							}
-						}}>
-							<Input placeholder='Введите имя' id="username"></Input>
-							<Input placeholder='Введите код' id="code"></Input>
-							<div id="hint"></div>
-							<button type="submit">Отправить</button>
-						</form>}
+						</div> : ''}
 				</div>
 			</Container>
 		</div>

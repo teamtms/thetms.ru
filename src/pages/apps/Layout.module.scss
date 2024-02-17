@@ -1,0 +1,23 @@
+.panel {
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.wrapper {
+	background-color: #11141d;
+	color: #fff;
+}
+
+.indicators {
+	display: flex;
+	gap: 4px;
+}
+
+.clock {
+	font-weight: 500;
+}
+
+.operator {
+	font-weight: 500;
+}
