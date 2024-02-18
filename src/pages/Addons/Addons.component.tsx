@@ -4,6 +4,7 @@ import { Card, Title3, SkeletonItem, Skeleton } from '@fluentui/react-components
 import { useQuery } from "@tanstack/react-query"
 import { WpImage } from '../../components/WpImage/WpImage.component';
 import { AnimateLink } from "@/components/AnimateLink/AnimateLink.component";
+import { Helmet } from "react-helmet";
 
 const Addons = () => {
 	const { isLoading, isSuccess, data } = useQuery({
@@ -13,7 +14,9 @@ const Addons = () => {
 
 	return (
 		<Container className="flex flex-col gap-2">
-
+			<Helmet>
+				<title>Аддоны - ТМС</title>
+			</Helmet>
 
 			{isLoading
 				? <><Card>

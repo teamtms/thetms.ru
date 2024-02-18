@@ -9,6 +9,7 @@ import Eval from '@/components/Eval/Eval.component'
 import { WpImage } from '@/components/WpImage/WpImage.component';
 import { Pin20Regular, Person20Regular, Calendar20Regular } from '@fluentui/react-icons';
 import { WpUsername } from '@/components/WpUsername/WpUsername.component'
+import { Helmet } from 'react-helmet'
 
 const Article = () => {
 	const params = useParams()
@@ -19,6 +20,9 @@ const Article = () => {
 
 	return (
 		<Container>
+			<Helmet>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+			</Helmet>
 			<Breadcrumb className={styles.breadcrumbs}>
 				<BreadcrumbItem>
 					<AnimateLink href="/">

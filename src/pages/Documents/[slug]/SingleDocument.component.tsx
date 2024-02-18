@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import { wordpress } from '@/services/wordpress'
 import { PassportCard } from '@/components/PassportCard/PassportCard.component'
 import { ArrowLeftRegular } from '@fluentui/react-icons'
+import { Helmet } from 'react-helmet';
 
 const SingleDocument = () => {
 	const { slug } = useParams()
@@ -18,6 +19,9 @@ const SingleDocument = () => {
 
 	return (
 		<Container>
+			<Helmet>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+			</Helmet>
 			<Button icon={<ArrowLeftRegular />} onClick={() => { navigate(-1) }} appearance="subtle" className={styles.backButton}>Назад</Button>
 			{isLoading && <Spinner />}
 			{isError && error.message}

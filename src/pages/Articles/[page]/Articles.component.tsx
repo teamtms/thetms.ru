@@ -7,6 +7,7 @@ import { Post } from '../../../components/Post/Post.component'
 import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component';
 import { useParams } from 'react-router-dom'
 import { ArrowRightRegular, ArrowLeftRegular } from '@fluentui/react-icons'
+import { Helmet } from 'react-helmet'
 
 const Articles = () => {
 	const { page } = useParams()
@@ -19,6 +20,10 @@ const Articles = () => {
 
 	return (
 		<Container className={styles.posts}>
+			<Helmet>
+				<title>Статьи - ТМС</title>
+			</Helmet>
+
 			{isLoading && <Spinner />}
 			{isError && <>{error.message}</>}
 

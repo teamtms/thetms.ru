@@ -1,14 +1,22 @@
 // import styles from './Home.module.scss'
 import { Title1, Title2, Title3 } from '@fluentui/react-components'
 import { Container } from '@/components/Container/Container.component'
-import { lazy } from 'react'
+import { lazy, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 
 const Eval = lazy(() => import('@/components/Eval/Eval.component'))
 const LatestNews = lazy(() => import('./LatestNews/LatestNews.component'))
 
 const Home = () => {
+
+	// useHead`<title>Hello</title>`
+
+
 	return (
 		<Container>
+			<Helmet>
+				<title>Главная - ТМС</title>
+			</Helmet>
 			<Title1>Добро пожаловать в АД</Title1>
 			<p className="mt-2">Кто-то называет это место ТМС, но слово ад сюда подходит точно больше</p>
 			<span className="inline-block mt-2 p-1 px-2 bg-slate-200 text-black rounded-md">mc.thetms.ru</span>

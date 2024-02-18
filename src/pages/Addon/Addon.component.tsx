@@ -7,6 +7,7 @@ import { WpUsername } from '../../components/WpUsername/WpUsername.component';
 import { CodeBlock20Regular, DocumentPageNumber20Regular } from '@fluentui/react-icons'
 import Eval from "@/components/Eval/Eval.component"
 import { Download } from "@/components/Download/Download.component"
+import { Helmet } from "react-helmet"
 
 const Addon = () => {
 	const { slug } = useParams()
@@ -18,6 +19,10 @@ const Addon = () => {
 
 	return (
 		<Container>
+			<Helmet>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+			</Helmet>
+
 			<Card size="large">
 				{isLoading ? <Spinner /> : ''}
 				{isSuccess

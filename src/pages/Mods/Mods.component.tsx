@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { github } from '@/services/github'
 
 import { Calendar20Regular, Person20Regular } from '@fluentui/react-icons'
+import { Helmet } from 'react-helmet'
 
 const Mods = () => {
 	const { isLoading, isError, isSuccess, data, error } = useQuery({
@@ -14,6 +15,9 @@ const Mods = () => {
 
 	return (
 		<Container className={styles.container}>
+			<Helmet>
+				<title>Скачать последнюю сборку модов - ТМС</title>
+			</Helmet>
 			<Title2>Скачать последнюю сборку модов ТМС</Title2>
 			{isLoading &&
 				<Skeleton animation="wave" width="100%">

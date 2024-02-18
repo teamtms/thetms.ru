@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { wordpress } from '@/services/wordpress'
 import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component';
+import { Helmet } from 'react-helmet';
 
 const Documents = () => {
 	const naviate = useNavigate()
@@ -18,6 +19,9 @@ const Documents = () => {
 
 	return (
 		<Container className={styles.container}>
+			<Helmet>
+				<title>Искать документы - ТМС</title>
+			</Helmet>
 			<form onSubmit={(e) => {
 				e.preventDefault()
 				const formData = new FormData(e.target as HTMLFormElement)
