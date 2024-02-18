@@ -4,3 +4,10 @@ export const request = async<T>(url: string): Promise<T> => {
 
 	return json
 }
+
+export const requestText = async (url: string): Promise<string> => {
+	const response = await fetch(url)
+	const text: string = await response.text()
+
+	return text
+}
