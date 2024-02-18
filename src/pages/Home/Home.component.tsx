@@ -1,16 +1,13 @@
 // import styles from './Home.module.scss'
 import { Title1, Title2, Title3 } from '@fluentui/react-components'
 import { Container } from '@/components/Container/Container.component'
-import { lazy, useEffect } from 'react'
+import { lazy } from 'react'
 import { Helmet } from 'react-helmet'
 
 const Eval = lazy(() => import('@/components/Eval/Eval.component'))
 const LatestNews = lazy(() => import('./LatestNews/LatestNews.component'))
 
 const Home = () => {
-
-	// useHead`<title>Hello</title>`
-
 
 	return (
 		<Container>
