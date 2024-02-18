@@ -1,10 +1,17 @@
+@font-face {
+	font-family: 'Pixel Code';
+	src: url('/woff2/PixelCode.woff2') format('woff2');
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	background-color: transparent;
 	border: 0;
 	outline: 0;
-	font-family: "Flow Circular", system-ui !important;
+	font-family: "Pixel Code", sans-serif !important;
+	display: flex;
+	flex-direction: column;
 }
 
 a {
