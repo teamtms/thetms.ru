@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container/Container.component'
-import { Outlet } from 'react-router-dom'
 import styles from './Layout.module.scss'
 import { useEffect, useState } from 'react'
 import { Icon } from '@/components/Icon/Icon.component'
