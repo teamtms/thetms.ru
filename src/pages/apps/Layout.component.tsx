@@ -15,7 +15,7 @@ export const AppsLayout = () => {
 	}, [])
 
 	return <div className={styles.wrapper}>
-		{navigator.appVersion.includes('MCEF')
+		{!navigator.appVersion.includes('MCEF')
 			? <>
 				<Container className={styles.panel}>
 					<div className={styles.operator}>
@@ -31,7 +31,9 @@ export const AppsLayout = () => {
 						<Icon>volume_up</Icon>
 					</div>
 				</Container>
-				<Outlet></Outlet></>
+				{/* <Outlet></Outlet> */}
+				В данный момент Приложения обновляются!
+			</>
 			: 'Приложения можно открывать только в WebDisplays!'}
 	</div>
 }
