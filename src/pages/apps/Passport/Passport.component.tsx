@@ -4,7 +4,7 @@ import styles from './Passport.module.scss'
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { Container } from '@/components/Container/Container.component'
 import { Icon } from '@/components/Icon/Icon.component'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const request = async (url: string) => {
 	const response = await fetch(url)
@@ -26,7 +26,7 @@ const Passport = () => {
 	return (
 		<div className={styles.wrapper}>
 			<Container className={styles.container}>
-				<div className={styles.card}>
+				<Link to="extended" className={styles.card}>
 					{username ?
 						<div className={styles.passport}>
 							<h2 className={styles.title}>Паспорт гражданина ТМС #{data[0].id}</h2>
@@ -56,7 +56,7 @@ const Passport = () => {
 								</div>
 							</div>
 						</div> : ''}
-				</div>
+				</Link>
 			</Container>
 		</div>
 	)

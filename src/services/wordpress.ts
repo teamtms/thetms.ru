@@ -18,6 +18,7 @@ export const wordpress = {
 	searchDocuments: async (search: string) => request<IDocument[]>(`${API}/document?search=${search}`),
 	getDocumentBySlug: async (slug: string) => request<IDocument[]>(`${API}/document?slug=${slug}`),
 	getFines: async () => request<IFine[]>(`${API}/fine`),
+	getFineById: async (id: number) => request<IFine>(`${API}/fine/${id}`),
 	getWpUserById: async (id: number) => request<IWpUser>(`${API}/users/${id}`),
 	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`),
 	getUserByName: async (username: string) => request<IUser[]>(`${API}/profile?slug=${username}`),

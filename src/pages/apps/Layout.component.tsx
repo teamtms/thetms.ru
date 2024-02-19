@@ -2,6 +2,7 @@ import { Container } from '@/components/Container/Container.component'
 import styles from './Layout.module.scss'
 import { useEffect, useState } from 'react'
 import { Icon } from '@/components/Icon/Icon.component'
+import { Outlet } from 'react-router-dom'
 
 export const AppsLayout = () => {
 	const [date, setDate] = useState(new Date())
@@ -30,8 +31,8 @@ export const AppsLayout = () => {
 						<Icon>volume_up</Icon>
 					</div>
 				</Container>
-				{/* <Outlet></Outlet> */}
-				В данный момент Приложения обновляются!
+				<Outlet></Outlet>
+				{/* В данный момент Приложения обновляются! */}
 			</>
 			: 'Приложения можно открывать только в WebDisplays!'}
 	</div>

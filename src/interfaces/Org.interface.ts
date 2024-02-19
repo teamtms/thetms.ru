@@ -7,4 +7,6 @@ export interface IOrg extends IWpItem {
 		revenue: number
 		address: string
 	}
+	title: { rendered: string }
+	content: { rendered: string }
 }

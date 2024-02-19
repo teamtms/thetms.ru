@@ -12,6 +12,7 @@ export interface IUser {
 		married: boolean
 		owner_of: number[]
 		additions: string
+		fines: number[]
 	}
 }
 
