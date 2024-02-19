@@ -14,7 +14,7 @@ export const AppsLayout = () => {
 	}, [])
 
 	return <div className={styles.wrapper}>
-		{!navigator.appVersion.includes('MCEF')
+		{navigator.appVersion.includes('MCEF')
 			? <>
 				<Container className={styles.panel}>
 					<div className={styles.operator}>
