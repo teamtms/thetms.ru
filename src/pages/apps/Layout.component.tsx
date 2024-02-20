@@ -15,7 +15,7 @@ export const AppsLayout = () => {
 	}, [])
 
 	return <div className={styles.wrapper}>
-		{navigator.appVersion.includes('MCEF')
+		{navigator.appVersion.includes('MCEF') || localStorage.getItem('enable_mcef_emulation') === '1'
 			? <>
 				<Container className={styles.panel}>
 					<div className={styles.operator}>
