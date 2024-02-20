@@ -6,16 +6,23 @@ import { Outlet } from 'react-router-dom'
 
 export const AppsLayout = () => {
 	const [date, setDate] = useState(new Date())
+	const [key, setKey] = useState('')
+	const [value, setValue] = useState('')
+	const [access, setAccess] = useState(false)
 
 	useEffect(() => {
 		setInterval(() => {
 			setDate(new Date())
+
+			setKey('0aa67d66-5d52-4d25-88bb-c41fa7a5d909')
+			setValue('94afbbd0-8495-401a-bf81-f67e6dfc3986')
+			setAccess(localStorage[key] === value)
 		}, 15000)
 	}, [])
 
 	return <div className={styles.wrapper}>
 		{
-			navigator.appVersion.includes('MCEF') || localStorage['cbd76d9b-1a22-483a-86fe-20702af5cf12'] === 'ade5f6ef-a13f-4348-85fd-16e14ed1449b'
+			navigator.appVersion.includes('MCEF') || access
 				? <>
 					<Container className={styles.panel}>
 						<div className={styles.operator}>
