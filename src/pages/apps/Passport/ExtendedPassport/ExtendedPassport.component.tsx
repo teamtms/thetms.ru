@@ -54,13 +54,13 @@ const ExtendedPassport = () => {
 					{data[0].acf.fines ? <>
 						<h2 className="text-2xl mb-4 mt-8">Штрафы и судимости</h2>
 						<div className="flex flex-col gap-3">
-							{data[0].acf.fines.map((item) => <FineCard id={item} />)}
+							{data[0].acf.fines.map((item) => <FineCard key={item} id={item} />)}
 						</div>
 					</> : ''}
 					{data[0].acf.owner_of.length !== 0 ? <>
 						<h2 className="text-2xl mb-4 mt-8">Организации</h2>
 						<div className="flex flex-col gap-3">
-							{data[0].acf.owner_of.map((item) => <OrgCard id={item} />)}
+							{data[0].acf.owner_of.map((item) => <OrgCard key={item} id={item} />)}
 						</div>
 					</> : ''}
 				</> : ''}
