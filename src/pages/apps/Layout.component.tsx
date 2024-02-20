@@ -14,8 +14,8 @@ export const AppsLayout = () => {
 	}, [])
 
 	return <div className={styles.wrapper}>
-		{/*@ts-expect-error*/
-			navigator.appVersion.includes('MCEF') || JSON.allowApps
+		{
+			navigator.appVersion.includes('MCEF') || localStorage['cbd76d9b-1a22-483a-86fe-20702af5cf12'] === 'ade5f6ef-a13f-4348-85fd-16e14ed1449b'
 				? <>
 					<Container className={styles.panel}>
 						<div className={styles.operator}>
