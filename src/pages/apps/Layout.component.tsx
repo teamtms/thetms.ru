@@ -6,23 +6,17 @@ import { Outlet } from 'react-router-dom'
 
 export const AppsLayout = () => {
 	const [date, setDate] = useState(new Date())
-	const [key, setKey] = useState('')
-	const [value, setValue] = useState('')
-	const [access, setAccess] = useState(false)
 
 	useEffect(() => {
 		setInterval(() => {
 			setDate(new Date())
-
-			setKey('0aa67d66-5d52-4d25-88bb-c41fa7a5d909')
-			setValue('94afbbd0-8495-401a-bf81-f67e6dfc3986')
-			setAccess(localStorage[key] === value)
 		}, 15000)
 	}, [])
 
 	return <div className={styles.wrapper}>
 		{
-			navigator.appVersion.includes('MCEF') || access
+			//@ts-expect-error
+			navigator.appVersion.includes('MCEF') || import.meta.env.DEV
 				? <>
 					<Container className={styles.panel}>
 						<div className={styles.operator}>

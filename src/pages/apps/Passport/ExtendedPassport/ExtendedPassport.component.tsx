@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 
 import styles from './ExtendedPassport.module.scss'
-import { WpImage } from '@/components/WpImage/WpImage.component'
 import { Container } from '@/components/Container/Container.component'
-import { Icon } from '@/components/Icon/Icon.component'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { FineCard } from '@/components/FineCard/FineCard.component'
 import { wordpress } from '@/services/wordpress'
 import { OrgCard } from '@/components/OrgCard/OrgCard.component'
+import { InnerPassport } from '../InnerPassport/InnerPassport.component'
+import { Button } from '@fluentui/react-components'
 
 const ExtendedPassport = () => {
 	const { username } = useParams()
@@ -15,6 +15,7 @@ const ExtendedPassport = () => {
 		queryKey: [`passport-${username}`],
 		queryFn: () => wordpress.getUserByName(username!)
 	})
+	const navigate = useNavigate()
 
 	if (isLoading) return <>Загрузка...</>
 	if (error) return <>{error.message}</>
@@ -22,8 +23,9 @@ const ExtendedPassport = () => {
 	return (
 		<div className={styles.wrapper}>
 			<Container className={styles.container}>
+				<Button onClick={() => navigate(-1)} appearance="outline" className=""><span className="text-[#fff]">назад</span></Button>
 				{username && data ? <>
-					<div className={styles.passport}>
+					{/* <div className={styles.passport}>
 						<h2 className={styles.title}>Дело гражданина ТМС #{data[0].id}</h2>
 						<div className={styles.user}>
 							<WpImage imageId={data[0].acf.avatar} className={styles.avatar}></WpImage>
@@ -50,7 +52,8 @@ const ExtendedPassport = () => {
 								</ul>
 							</div>
 						</div>
-					</div>
+					</div> */}
+					<InnerPassport user={data[0]}></InnerPassport>
 					{data[0].acf.fines ? <>
 						<h2 className="text-2xl mb-4 mt-8">Штрафы и судимости</h2>
 						<div className="flex flex-col gap-3">

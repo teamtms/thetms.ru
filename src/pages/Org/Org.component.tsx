@@ -2,11 +2,13 @@ import { Container } from '@/components/Container/Container.component'
 import { WpPassportUsername } from '@/components/PassportUsername/WpUsername.component'
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { wordpress } from '@/services/wordpress'
+import { Button } from '@fluentui/react-components'
 import { useQuery } from '@tanstack/react-query'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Org = () => {
 	const { id } = useParams()
+	const navigate = useNavigate()
 	const { isLoading, data } = useQuery({
 		queryKey: [`org-${id}`],
 		queryFn: () => wordpress.getOrgById(+id!)
@@ -16,6 +18,7 @@ const Org = () => {
 		<div>
 			{isLoading ? 'Загрузка' : ''}
 			{data ? <Container className="min-h-[100vh]">
+				<Button onClick={() => navigate(-1)} appearance="outline" className=""><span className="text-[#fff]">назад</span></Button>
 				<WpImage imageId={data.acf.photo} className="mb-8"></WpImage>
 				<div className="flex gap-8 mb-8 items-start">
 					<div className="flex flex-col border-l-[#fff] border-l-[2px] pl-4">

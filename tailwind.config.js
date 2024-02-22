@@ -6,9 +6,14 @@ export default {
   ],
   theme: {
     extend: {
-        spacing: {
-          '100': '32rem',
-        }
+      spacing: {
+        '100': '32rem',
+      },
+      colors: {
+        'app-accent': '#0a224f',
+        'app-card': '#181b24',
+        'app': '#11141d',
+      }
     },
   },
   plugins: [],
