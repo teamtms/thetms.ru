@@ -1,11 +1,9 @@
-import { Container } from "@/components/Container/Container.component";
-import { WpImage } from "@/components/WpImage/WpImage.component";
-import { formatDate } from "@/functions/formatDate";
-import { wordpress } from "@/services/wordpress";
-import { Spinner } from "@fluentui/react-components";
-import { useQuery } from "@tanstack/react-query";
-import { Hash } from "crypto"
-import { Link, useParams } from "react-router-dom";
+import { Container } from "@/components/Container/Container.component"
+import { WpImage } from "@/components/WpImage/WpImage.component"
+import { wordpress } from "@/services/wordpress"
+import { Spinner } from "@fluentui/react-components"
+import { useQuery } from "@tanstack/react-query"
+import { Link } from "react-router-dom"
 
 const MoviePosters = () => {
 	const { isLoading, error, data } = useQuery({
