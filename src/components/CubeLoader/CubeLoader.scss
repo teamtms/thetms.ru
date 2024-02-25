@@ -1,0 +1,77 @@
+@keyframes animation_Rectangle_1_1_flow_1 {
+	from {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 179.5px 405.5px;
+		x: 111px;
+	}
+
+	to {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 260.5px 405.5px;
+		x: 192px;
+	}
+}
+
+@keyframes animation_Rectangle_1_1_flow_4 {
+	from {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 260.5px 405.5px;
+		x: 192px;
+	}
+
+	to {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 199.5px 405.5px;
+		x: 131px;
+	}
+}
+
+@keyframes animation_Rectangle_1_1_flow_5 {
+	from {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 199.5px 405.5px;
+		x: 131px;
+	}
+
+	to {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 179.5px 405.5px;
+		x: 111px;
+	}
+}
+
+@keyframes animation_Rectangle_3_3_flow_2 {
+	from {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 533.5px 405.5px;
+		x: 465px;
+	}
+
+	to {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 594.5px 405.5px;
+		x: 526px;
+	}
+}
+
+@keyframes animation_Rectangle_3_3_flow_3 {
+	from {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 594.5px 405.5px;
+		x: 526px;
+	}
+
+	to {
+		transform: translate(0px, 0px) rotate(0deg);
+		transform-origin: 533.5px 405.5px;
+		x: 465px;
+	}
+}
+
+#Rectangle_1_1 {
+	animation: animation_Rectangle_1_1_flow_1 0.1s ease-out 0.15s forwards, animation_Rectangle_1_1_flow_4 0.1s ease-out 0.6s forwards, animation_Rectangle_1_1_flow_5 0.001s ease-out 0.7s forwards;
+}
+
+#Rectangle_3_3 {
+	animation: animation_Rectangle_3_3_flow_2 0.1s ease-out 0.25s forwards, animation_Rectangle_3_3_flow_3 0.1s ease-out 0.5s forwards;
+}

@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container/Container.component'
+import Eval from '@/components/Eval/Eval.component'
 import { WpPassportUsername } from '@/components/PassportUsername/WpUsername.component'
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { wordpress } from '@/services/wordpress'
@@ -35,7 +36,7 @@ const Org = () => {
 					</div>
 				</div>
 				<h1 className="text-2xl mb-4" dangerouslySetInnerHTML={{ __html: data.title.rendered }}></h1>
-				<div dangerouslySetInnerHTML={{ __html: data.content.rendered }}></div>
+				<Eval dangerouslySetInnerHTML={{ __html: data.content.rendered }}></Eval>
 			</Container> : ''}
 		</div>
 	)

@@ -20,9 +20,13 @@ const Fines = () => {
 				<title>Система штрафов ТМС - ТМС</title>
 			</Helmet>
 			<Title1>Система штрафов ТМС</Title1>
-			{data.map((fine) => <Fine
-				key={fine.id}
-				fine={fine} />
+			{data.map((fine) => <>
+				{fine.acf.is_opened
+					? <Fine
+						key={fine.id}
+						fine={fine} />
+					: ''}
+			</>
 			)}
 		</Container>
 	)

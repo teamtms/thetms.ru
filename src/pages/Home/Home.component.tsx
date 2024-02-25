@@ -1,5 +1,4 @@
 // import styles from './Home.module.scss'
-import { Title1, Title2, Title3 } from '@fluentui/react-components'
 import { Container } from '@/components/Container/Container.component'
 import { lazy } from 'react'
 import { Helmet } from 'react-helmet'
@@ -10,16 +9,16 @@ const LatestNews = lazy(() => import('./LatestNews/LatestNews.component'))
 const Home = () => {
 
 	return (
-		<Container>
+		<Container className="font-press-start-2p">
 			<Helmet>
 				<title>Главная - ТМС</title>
 			</Helmet>
-			<Title1>Добро пожаловать в АД</Title1>
-			<p className="mt-2">Кто-то называет это место ТМС, но слово ад сюда подходит точно больше</p>
+			<h1 className="text-3xl mb-4">Добро пожаловать в АД</h1>
+			<p className="mt-2 mb-4">Кто-то называет это место ТМС, но слово ад сюда подходит точно больше</p>
 			<span className="inline-block mt-2 p-1 px-2 bg-slate-200 text-black rounded-md">mc.thetms.ru</span>
 
 			<div className="mt-16">
-				<Title2>Плюсы <del>их тут нет</del></Title2>
+				<h2 className="text-2xl">Плюсы <del>их тут нет</del></h2>
 			</div>
 			<Eval className='mb-2 mt-4'>
 				<ol>
@@ -30,23 +29,23 @@ const Home = () => {
 			</Eval>
 
 			<div className="mt-16">
-				<Title2>Статистика</Title2>
-				<div className="flex flex-wrap gap-10 mt-4">
-					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36 sm:basis-auto">
-						<Title3>2</Title3>
-						<p>года серверу</p>
+				<h2 className="text-2xl">Статистика</h2>
+				<div className="flex flex-wrap gap-y-6 sm:gap-10 mt-4 ">
+					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36">
+						<h3 className="text-xl">3</h3>
+						<p className="flex flex-col justify-end h-8 text-xs">года<br />серверу</p>
 					</div>
-					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36 sm:basis-auto">
-						<Title3>100+</Title3>
-						<p>зданий построено</p>
+					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36">
+						<h3 className="text-xl">100+</h3>
+						<p className="flex flex-col justify-end h-8 text-xs">зданий построено</p>
 					</div>
-					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36 sm:basis-auto">
-						<Title3>10+</Title3>
-						<p>модов на сервере</p>
+					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36">
+						<h3 className="text-xl">10+</h3>
+						<p className="flex flex-col justify-end h-8 text-xs">модов на сервере</p>
 					</div>
-					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36 sm:basis-auto">
-						<Title3>0</Title3>
-						<p>дней без тупасти</p>
+					<div className="border-s-2 pt-1 pb-1 pl-3 basis-36">
+						<h3 className="text-xl">0</h3>
+						<p className="flex flex-col justify-end h-8 text-xs">дней без тупасти</p>
 					</div>
 				</div>
 			</div>
@@ -54,7 +53,7 @@ const Home = () => {
 				<LatestNews /> : ''}
 
 			<div className="mt-16">
-				<Title2>Моменты</Title2>
+				<h2 className="text-2xl">Моменты</h2>
 				<div className="grid gap-8 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 mt-4">
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-07_00.30.32.png" alt="" />
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.22.02.png" alt="" />
@@ -65,10 +64,10 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div className="mt-16 flex items-center gap-16 flex-col md:flex-row">
+			<div className="mt-16 flex items-center gap-12 flex-col md:flex-row">
 				<div className="basis-1/2">
-					<Title2>Бюджетная больница</Title2>
-					<p className="mt-2">Добро пожаловать в бюджетную больницу Minecraft. Это медицинское учреждение обеспечивает
+					<h2 className="text-2xl">Бюджетная больница</h2>
+					<p className="mt-2 text-[13px] [word-spacing:-4px]">Добро пожаловать в бюджетную больницу Minecraft. Это медицинское учреждение обеспечивает
 						игрокам и жителям города доступ к медицинским услугам по бесплатной цене. В нашей больнице одно отделение: палаты.</p>
 				</div>
 				<div className="basis-1/2 ">
@@ -76,24 +75,24 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div className="mt-8 flex items-center gap-16 flex-col-reverse md:flex-row">
+			<div className="mt-8 flex items-center gap-12 flex-col-reverse md:flex-row">
 				<div className="basis-1/2 ">
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-11_16.29.00.png" alt="" />
 				</div>
 				<div className="basis-1/2">
-					<Title2>Городской суд</Title2>
-					<p className="mt-2">
+					<h2 className="text-2xl">Городской суд</h2>
+					<p className="mt-2 text-[13px] [word-spacing:-4px]">
 						Этот суд является корупционным органом, который занимается разрешением гражданских и уголовных дел. В нашем суде вы не можете получить правовую помощь и консультацию по любым юридическим вопросам.
 					</p>
 				</div>
 			</div>
-			<div className="mt-8 flex items-center gap-16 flex-col md:flex-row">
+			<div className="mt-8 flex items-center gap-12 flex-col md:flex-row">
 				<div className="basis-1/2">
-					<Title2>Больница Великого Джагфоенана в FakeCity</Title2>
-					<p className="mt-2">
+					<h2 className="text-2xl">Больница Великого Джагфоенана в FakeCity</h2>
+					<p className="mt-2 text-[13px] [word-spacing:-4px]">
 						Добро пожаловать в самую лучшую премиум-больницу Minecraft. Мы гордимся тем, что предлагаем нашим пациентам высокий уровень медицинского обслуживания и комфорта.
 
-						Наша больница оснащена самым современным оборудованием и технологиями, которые позволяют нам диагностировать и лечить самые сложные заболевания. У нас есть специализированные отделения для лечения различных заболеваний, включая онкологию, кардиологию, неврологию, роды и многое другое. Кроме того, у нас есть собственная лаборатория, где мы можем проводить различные медицинские тесты и анализы.
+						Наша больница оснащена самым современным оборудованием и технологиями, которые позволяют нам диагностировать и лечить самые сложные заболевания.
 					</p>
 				</div>
 				<div className="basis-1/2 ">

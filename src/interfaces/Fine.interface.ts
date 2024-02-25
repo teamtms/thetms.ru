@@ -5,5 +5,6 @@ export interface IFine extends IWpItem {
 	acf: {
 		amount: number
 		reciever: number
+		is_opened: boolean
 	}
 }

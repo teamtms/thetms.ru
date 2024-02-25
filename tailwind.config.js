@@ -13,8 +13,11 @@ export default {
         'app-accent': '#0a224f',
         'app-card': '#181b24',
         'app': '#11141d',
-      }
+      },
     },
+    fontFamily: {
+      'press-start-2p': ['"Press Start 2P"', 'sans-serif']
+    }
   },
   plugins: [],
 }

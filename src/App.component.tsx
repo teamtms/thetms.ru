@@ -25,6 +25,7 @@ const Platform = lazy(() => import('./pages/Platform/Platform.component'))
 const Org = lazy(() => import('./pages/Org/Org.component'))
 const MoviePosters = lazy(() => import('./pages/MoviePosters/MoviePosters.component'))
 const MoviePoster = lazy(() => import('./pages/MoviePosters/[id]/MoviePoster.component'))
+const City = lazy(() => import('./pages/Cities/[slug]/City.component'))
 
 export const App = () => {
 	return (
@@ -46,6 +47,7 @@ export const App = () => {
 						<Route path="/addons/:slug" Component={Addon} />
 						<Route path="/platform" Component={Platform} />
 						<Route path="/org/:id" Component={Org} />
+						<Route path="/cities/:slug" Component={City}></Route>
 						<Route path="/" Component={Home} />
 						<Route path="/movieposters" Component={MoviePosters} />
 						<Route path="/*" element={<Container>404 not found</Container>} />
@@ -59,6 +61,6 @@ export const App = () => {
 					<Route path="/movieposters/:id" Component={MoviePoster} />
 				</Route>
 			</Routes>
-		</BrowserRouter>
+		</BrowserRouter >
 	)
 }

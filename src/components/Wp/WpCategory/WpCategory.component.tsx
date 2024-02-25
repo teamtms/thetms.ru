@@ -1,7 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query'
 import type { WpCategoryProps } from './WpCategory.props.ts'
-import { Skeleton, SkeletonItem } from '@fluentui/react-components';
-import { wordpress } from '@/services/wordpress.ts';
+import { Skeleton, SkeletonItem } from '@fluentui/react-components'
+import { wordpress } from '@/services/wordpress.ts'
 
 export const WpCategory = ({ categoryId, ...props }: WpCategoryProps) => {
 	const { isLoading, isSuccess, data } = useQuery({

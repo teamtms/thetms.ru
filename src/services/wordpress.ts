@@ -9,6 +9,7 @@ import { IAddon } from '@/interfaces/Addon.interface'
 import { IMedia } from '@/interfaces/Media.interface'
 import { IPwOrder } from '@/interfaces/PwOrder.interface'
 import { IPoster } from '@/interfaces/Poster.interface'
+import { ICity } from '@/interfaces/City.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
@@ -31,4 +32,5 @@ export const wordpress = {
 	getPwOrders: async () => request<IPwOrder[]>(`${API}/paidwalk`),
 	getPosters: async () => request<IPoster[]>(`${API}/poster`),
 	getPosterById: async (id: number) => request<IPoster>(`${API}/poster/${id}`),
+	getCityBySlug: async (slug: string) => request<ICity[]>(`${API}/city?slug=${slug}`),
 }
