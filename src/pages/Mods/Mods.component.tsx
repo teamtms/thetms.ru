@@ -6,8 +6,10 @@ import { github } from '@/services/github'
 
 import { Calendar20Regular, Person20Regular } from '@fluentui/react-icons'
 import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Mods = () => {
+	const { siteTitle } = useStore()
 	const { isLoading, isError, isSuccess, data, error } = useQuery({
 		queryKey: ['mods'],
 		queryFn: () => github.getModpackReleases()
@@ -16,7 +18,7 @@ const Mods = () => {
 	return (
 		<Container className={styles.container}>
 			<Helmet>
-				<title>Скачать последнюю сборку модов - ТМС</title>
+				<title>Скачать последнюю сборку модов - {siteTitle}</title>
 			</Helmet>
 			<Title2>Скачать последнюю сборку модов ТМС</Title2>
 			{isLoading &&
@@ -41,21 +43,21 @@ const Mods = () => {
 					</Card>
 				</Skeleton>}
 			{isError && <Card>{error.message}</Card>}
-			{isSuccess && data.map((release) => <Card key={release.id} className={styles.card}>
-				<Title3 >{release.name} <span className={styles.tag}>{release.tag_name}</span></Title3>
+			{isSuccess && <Card className={styles.card}>
+				<Title3 >{data.name} <span className={styles.tag}>{data.tag_name}</span></Title3>
 				<div className={styles.info}>
 					<div className={styles.infoBlock}>
 						<Calendar20Regular />
-						{new Date(release.published_at).getDate()}.{new Date(release.published_at).getMonth() + 1}.{new Date(release.published_at).getFullYear()}
+						{new Date(data.published_at).getDate()}.{new Date(data.published_at).getMonth() + 1}.{new Date(data.published_at).getFullYear()}
 					</div>
 					<div className={styles.infoBlock}>
 						<Person20Regular />
-						{release.author.login}
+						{data.author.login}
 					</div>
 				</div>
-				<div dangerouslySetInnerHTML={{ __html: release.body.replace(/\r\n/g, '<br>') }}></div>
-				<Button appearance="primary" as="a" href={release.zipball_url}>Скачать</Button>
-			</Card>)}
+				<div dangerouslySetInnerHTML={{ __html: data.body.replace(/\r\n/g, '<br>') }}></div>
+				<Button appearance="primary" as="a" href={data.zipball_url}>Скачать</Button>
+			</Card>}
 		</Container>
 	)
 }

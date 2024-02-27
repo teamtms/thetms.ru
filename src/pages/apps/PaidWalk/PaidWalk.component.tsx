@@ -1,11 +1,14 @@
-import { Container } from "@/components/Container/Container.component"
-import { wordpress } from "@/services/wordpress"
-import { useQuery } from "@tanstack/react-query"
+import { Container } from '@/components/Container/Container.component'
+import { wordpress } from '@/services/wordpress'
+import { useQuery } from '@tanstack/react-query'
 import styles from './PaidWalk.module.scss'
-import { formatDate } from "@/functions/formatDate"
-import { WpImage } from "@/components/WpImage/WpImage.component"
+import { formatDate } from '@/functions/formatDate'
+import { WpImage } from '@/components/WpImage/WpImage.component'
+import { Helmet } from 'react-helmet-async'
+import { useStore } from '@/hooks/useStore.hook'
 
 const PaidWalk = () => {
+	const { siteTitle } = useStore()
 	const { isLoading, data, error } = useQuery({
 		queryKey: ['pw_tasks'],
 		queryFn: () => wordpress.getPwOrders()
@@ -13,6 +16,9 @@ const PaidWalk = () => {
 
 	return (
 		<div className={styles.wrapper}>
+			<Helmet>
+				<title>PaidWalk - {siteTitle}</title>
+			</Helmet>
 			<Container>
 				{isLoading ? 'Загрузка' : ''}
 				{error ? error.message : ''}

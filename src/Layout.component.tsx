@@ -1,18 +1,29 @@
+import { useQuery } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async'
 import { Outlet } from 'react-router-dom'
-import { Header } from './components/Header/Header.component'
-import './Layout.scss'
-import { Suspense } from 'react'
-import { Spinner } from '@fluentui/react-components'
+import { wordpress } from './services/wordpress'
+import { useStore } from './hooks/useStore.hook'
+import { useEffect } from 'react'
 
 export const Layout = () => {
-	return (
-		<>
-			<Header />
-			<Suspense fallback={<Spinner />}>
-				<main className="main">
-					<Outlet />
-				</main>
-			</Suspense>
-		</>
-	)
+	const { siteTitle, setSiteTitle } = useStore()
+	const { data, error } = useQuery({
+		queryKey: ['site_info'],
+		queryFn: () => wordpress.getSiteInfo()
+	})
+
+	useEffect(() => {
+		if (data && !siteTitle) {
+			setSiteTitle(data.name)
+		}
+	}, [data])
+
+	return <>
+		<Helmet>
+			<title>{siteTitle}</title>
+			<link rel="shortcut icon" href={data?.site_icon_url} type="image/png" />
+		</Helmet>
+		{error ? error.message : ''}
+		<Outlet></Outlet>
+	</>
 }

@@ -1,17 +1,19 @@
 // import styles from './Home.module.scss'
 import { Container } from '@/components/Container/Container.component'
+import { useStore } from '@/hooks/useStore.hook'
 import { lazy } from 'react'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 const Eval = lazy(() => import('@/components/Eval/Eval.component'))
 const LatestNews = lazy(() => import('./LatestNews/LatestNews.component'))
 
 const Home = () => {
+	const { siteTitle } = useStore()
 
 	return (
 		<Container className="font-press-start-2p">
 			<Helmet>
-				<title>Главная - ТМС</title>
+				<title>Главная - {siteTitle}</title>
 			</Helmet>
 			<h1 className="text-3xl mb-4">Добро пожаловать в АД</h1>
 			<p className="mt-2 mb-4">Кто-то называет это место ТМС, но слово ад сюда подходит точно больше</p>

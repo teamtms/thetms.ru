@@ -8,8 +8,10 @@ import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component';
 import { useParams } from 'react-router-dom'
 import { ArrowRightRegular, ArrowLeftRegular } from '@fluentui/react-icons'
 import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Articles = () => {
+	const { siteTitle } = useStore()
 	const { page } = useParams()
 	const pageId = +page! ? +page! : 1
 
@@ -21,7 +23,7 @@ const Articles = () => {
 	return (
 		<Container className={styles.posts}>
 			<Helmet>
-				<title>Статьи - ТМС</title>
+				<title>Статьи - {siteTitle}</title>
 			</Helmet>
 
 			{isLoading && <Spinner />}

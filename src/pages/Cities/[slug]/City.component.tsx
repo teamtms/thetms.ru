@@ -5,8 +5,11 @@ import { Spinner } from '@fluentui/react-components'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { CityOrganization } from './CityOrganization/CityOrganization.component'
+import { Helmet } from 'react-helmet-async'
+import { useStore } from '@/hooks/useStore.hook'
 
 const City = () => {
+	const { siteTitle } = useStore()
 	const { slug } = useParams()
 	const { isLoading, data, error } = useQuery({
 		queryKey: ['city', slug],
@@ -19,7 +22,10 @@ const City = () => {
 				{isLoading ? <Spinner /> : ''}
 				{error ? error.message : ''}
 				{data ? <>
-					<span className="block mb-2">добро пожаловать, в</span>
+					<Helmet>
+						<title>{data?.[0].title.rendered} - {siteTitle}</title>
+					</Helmet>
+					<span className="block mb-2">добро пожаловать в</span>
 					<h1 className="text-4xl mb-4">{data[0].title.rendered}</h1>
 					<Eval className="mb-16 max-w-2xl" dangerouslySetInnerHTML={{ __html: data[0].content.rendered ? data[0].content.rendered : '' }}></Eval>
 					<div className="flex flex-col gap-20">

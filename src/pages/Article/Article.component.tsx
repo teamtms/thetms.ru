@@ -12,8 +12,10 @@ import { Helmet } from 'react-helmet'
 import { WpAvatar } from '@/components/Wp/WpAvatar/WpAvatar.component'
 import { WpUsername } from '@/components/WpUsername/WpUsername.component'
 import { WpCategory } from '@/components/Wp/WpCategory/WpCategory.component'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Article = () => {
+	const { siteTitle } = useStore()
 	const params = useParams()
 	const { isLoading, isError, isSuccess, error, data } = useQuery({
 		queryKey: ['article'],
@@ -23,7 +25,7 @@ const Article = () => {
 	return (
 		<Container>
 			<Helmet>
-				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - {siteTitle}</title>
 			</Helmet>
 			<Breadcrumb className={styles.breadcrumbs}>
 				<BreadcrumbItem>

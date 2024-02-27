@@ -2,38 +2,40 @@ import styles from './Header.module.scss'
 
 import { Body1Strong, TabList, Tab } from '@fluentui/react-components'
 import { Container } from '../Container/Container.component'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import { HomeRegular, MoneyRegular, DocumentRegular, AppsAddInRegular, AddCircleRegular } from '@fluentui/react-icons'
 import { AnimateLink } from '../AnimateLink/AnimateLink.component'
+import { useStore } from '@/hooks/useStore.hook'
 
-const getRandomI = <T,>(array: T[]) => {
-	return array[Math.floor(Math.random() * array.length)]
-}
+// const getRandomI = <T,>(array: T[]) => {
+// 	return array[Math.floor(Math.random() * array.length)]
+// }
 
-const generateWords = () => {
-	const t_words = [
-		'топор', 'травник', 'тунец', 'таз', 'танец'
-	]
-	const m_words = [
-		'мучающий', 'меняющий', 'мутирующий', 'минирующий'
-	]
-	const s_words = [
-		'соседа', 'страуса', 'слона', 'судьбу'
-	]
+// const generateWords = () => {
+// 	const t_words = [
+// 		'топор', 'травник', 'тунец', 'таз', 'танец'
+// 	]
+// 	const m_words = [
+// 		'мучающий', 'меняющий', 'мутирующий', 'минирующий'
+// 	]
+// 	const s_words = [
+// 		'соседа', 'страуса', 'слона', 'судьбу'
+// 	]
 
-	return `${getRandomI<string>(t_words)} ${getRandomI<string>(m_words)} ${getRandomI<string>(s_words)}`
-}
+// 	return `${getRandomI<string>(t_words)} ${getRandomI<string>(m_words)} ${getRandomI<string>(s_words)}`
+// }
 
 export const Header = () => {
-	const [title, setTitle] = useState(generateWords())
-	const toggleTitle = () => { setTitle(generateWords()) }
+	const { siteTitle } = useStore()
+	// const [title, setTitle] = useState(generateWords())
+	// const toggleTitle = () => { setTitle(generateWords()) }
 
 	return (
 		<header>
 			<Container className={styles.header}>
 				<AnimateLink href="/">
-					<Body1Strong className={styles.title} onClick={() => { toggleTitle() }}>{title}</Body1Strong>
+					<Body1Strong className={styles.title}>{siteTitle}</Body1Strong>
 				</AnimateLink>
 				<div className="overflow-x-auto">
 					<TabList defaultValue={"fines"} appearance="subtle" defaultSelectedValue={location.pathname.split('/')[1]}>

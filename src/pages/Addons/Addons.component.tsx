@@ -1,12 +1,14 @@
 import { Container } from "@/components/Container/Container.component"
 import { wordpress } from "@/services/wordpress"
-import { Card, Title3, SkeletonItem, Skeleton } from '@fluentui/react-components';
-import { useQuery } from "@tanstack/react-query"
-import { WpImage } from '../../components/WpImage/WpImage.component';
-import { AnimateLink } from "@/components/AnimateLink/AnimateLink.component";
-import { Helmet } from "react-helmet";
+import { Card, Title3, SkeletonItem, Skeleton } from '@fluentui/react-components'
+import { useQuery } from '@tanstack/react-query'
+import { WpImage } from '../../components/WpImage/WpImage.component'
+import { AnimateLink } from "@/components/AnimateLink/AnimateLink.component"
+import { Helmet } from 'react-helmet-async'
+import { useStore } from "@/hooks/useStore.hook"
 
 const Addons = () => {
+	const { siteTitle } = useStore()
 	const { isLoading, isSuccess, data } = useQuery({
 		queryKey: ['addons'],
 		queryFn: () => wordpress.getAddons()
@@ -15,7 +17,7 @@ const Addons = () => {
 	return (
 		<Container className="flex flex-col gap-2">
 			<Helmet>
-				<title>Аддоны - ТМС</title>
+				<title>Аддоны - {siteTitle}</title>
 			</Helmet>
 
 			{isLoading

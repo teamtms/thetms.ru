@@ -10,11 +10,13 @@ import { IMedia } from '@/interfaces/Media.interface'
 import { IPwOrder } from '@/interfaces/PwOrder.interface'
 import { IPoster } from '@/interfaces/Poster.interface'
 import { ICity } from '@/interfaces/City.interface'
+import { ISiteInfo } from '@/interfaces/SiteInfo.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
 
 export const wordpress = {
+	getSiteInfo: async () => request<ISiteInfo>('https://www.fb24m.ru/tms/wp-json/'),
 	getPosts: async (page: number = 1, per_page: number = 10) => request<IPost[]>(`${API}/posts?per_page=${per_page}&page=${page}`),
 	getPostBySlug: async (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`),
 	searchDocuments: async (search: string) => request<IDocument[]>(`${API}/document?search=${search}`),

@@ -1,10 +1,11 @@
 import { lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { Layout } from './Layout.component'
+import { PagesLayout } from './pages/Layout/PagesLayout.component'
 import { Container } from './components/Container/Container.component'
 import { Provider } from './Provider.component'
 import { AppsLayout } from './pages/apps/Layout.component'
+import { Layout } from './Layout.component'
 
 const Passport = lazy(() => import('./pages/apps/Passport/Passport.component'))
 const ExtendedPassport = lazy(() => import('./pages/apps/Passport/ExtendedPassport/ExtendedPassport.component'))
@@ -33,34 +34,36 @@ export const App = () => {
 			<Routes>
 				<Route Component={Provider}>
 					<Route Component={Layout}>
-						<Route path="/fines" Component={Fines} />
-						<Route path="/article/:slug" Component={Article} />
-						<Route path="/archive/:page" Component={Home} />
-						<Route path="/documents" Component={Documents} />
-						<Route path="/documents/:slug" Component={SingleDocument} />
-						<Route path="/mods" Component={Mods} />
-						<Route path="/tax/:username" Component={Tax} />
-						<Route path="/send" Component={Send} />
-						<Route path="/articles/:page" Component={Posts} />
-						<Route path="/articles" Component={MetaArticles} />
-						<Route path="/addons" Component={Addons} />
-						<Route path="/addons/:slug" Component={Addon} />
-						<Route path="/platform" Component={Platform} />
-						<Route path="/org/:id" Component={Org} />
-						<Route path="/cities/:slug" Component={City}></Route>
-						<Route path="/" Component={Home} />
-						<Route path="/movieposters" Component={MoviePosters} />
-						<Route path="/*" element={<Container>404 not found</Container>} />
+						<Route Component={PagesLayout}>
+							<Route path="/fines" Component={Fines} />
+							<Route path="/article/:slug" Component={Article} />
+							<Route path="/archive/:page" Component={Home} />
+							<Route path="/documents" Component={Documents} />
+							<Route path="/documents/:slug" Component={SingleDocument} />
+							<Route path="/mods" Component={Mods} />
+							<Route path="/tax/:username" Component={Tax} />
+							<Route path="/send" Component={Send} />
+							<Route path="/articles/:page" Component={Posts} />
+							<Route path="/articles" Component={MetaArticles} />
+							<Route path="/addons" Component={Addons} />
+							<Route path="/addons/:slug" Component={Addon} />
+							<Route path="/platform" Component={Platform} />
+							<Route path="/org/:id" Component={Org} />
+							<Route path="/cities/:slug" Component={City}></Route>
+							<Route path="/" Component={Home} />
+							<Route path="/movieposters" Component={MoviePosters} />
+							<Route path="/*" element={<Container>404 not found</Container>} />
+						</Route>
+						<Route path="/apps" Component={AppsLayout}>
+							<Route path="/apps/paidwalk" Component={PaidWalk} />
+							<Route path="/apps/passport/:username" Component={Passport} />
+							<Route path="/apps/passport/:username/extended" Component={ExtendedPassport} />
+							<Route path="/apps/org/:id" Component={Org} />
+						</Route>
+						<Route path="/movieposters/:id" Component={MoviePoster} />
 					</Route>
-					<Route path="/apps" Component={AppsLayout}>
-						<Route path="/apps/paidwalk" Component={PaidWalk} />
-						<Route path="/apps/passport/:username" Component={Passport} />
-						<Route path="/apps/passport/:username/extended" Component={ExtendedPassport} />
-						<Route path="/apps/org/:id" Component={Org} />
-					</Route>
-					<Route path="/movieposters/:id" Component={MoviePoster} />
 				</Route>
 			</Routes>
-		</BrowserRouter >
+		</BrowserRouter>
 	)
 }

@@ -1,15 +1,17 @@
 import { Container } from '@/components/Container/Container.component'
 import styles from './SingleDocument.module.scss'
-import { Button, Card, Spinner, Title3 } from '@fluentui/react-components';
+import { Button, Card, Spinner, Title3 } from '@fluentui/react-components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { wordpress } from '@/services/wordpress'
 import { PassportCard } from '@/components/PassportCard/PassportCard.component'
 import { ArrowLeftRegular } from '@fluentui/react-icons'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const SingleDocument = () => {
 	const { slug } = useParams()
+	const { siteTitle } = useStore()
 
 	const { isLoading, isError, isSuccess, data, error } = useQuery({
 		queryKey: ['document', slug],
@@ -20,7 +22,7 @@ const SingleDocument = () => {
 	return (
 		<Container>
 			<Helmet>
-				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - {siteTitle}</title>
 			</Helmet>
 			<Button icon={<ArrowLeftRegular />} onClick={() => { navigate(-1) }} appearance="subtle" className={styles.backButton}>Назад</Button>
 			{isLoading && <Spinner />}

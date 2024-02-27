@@ -1,15 +1,17 @@
-import { Container } from "@/components/Container/Container.component"
-import { wordpress } from "@/services/wordpress"
-import { Card, Spinner, Title1 } from "@fluentui/react-components"
-import { useQuery } from "@tanstack/react-query"
-import { useParams } from "react-router-dom"
-import { WpUsername } from '../../components/WpUsername/WpUsername.component';
+import { Container } from '@/components/Container/Container.component'
+import { wordpress } from '@/services/wordpress'
+import { Card, Spinner, Title1 } from '@fluentui/react-components'
+import { useQuery } from '@tanstack/react-query'
+import { useParams } from 'react-router-dom'
+import { WpUsername } from '../../components/WpUsername/WpUsername.component'
 import { CodeBlock20Regular, DocumentPageNumber20Regular } from '@fluentui/react-icons'
-import Eval from "@/components/Eval/Eval.component"
-import { Download } from "@/components/Download/Download.component"
-import { Helmet } from "react-helmet"
+import Eval from '@/components/Eval/Eval.component'
+import { Download } from '@/components/Download/Download.component'
+import { Helmet } from 'react-helmet-async'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Addon = () => {
+	const { siteTitle } = useStore()
 	const { slug } = useParams()
 
 	const { isLoading, isSuccess, data } = useQuery({
@@ -20,7 +22,7 @@ const Addon = () => {
 	return (
 		<Container>
 			<Helmet>
-				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - ТМС</title>
+				<title>{isLoading ? 'Загрузка' : ''}{isSuccess ? data[0].title.rendered : ''} - {siteTitle}</title>
 			</Helmet>
 
 			<Card size="large">

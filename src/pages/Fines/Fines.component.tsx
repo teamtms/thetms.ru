@@ -5,8 +5,10 @@ import { wordpress } from '@/services/wordpress'
 import { Fine } from './Fine/Fine.component'
 import styles from './Fines.module.scss'
 import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Fines = () => {
+	const { siteTitle } = useStore()
 	const { isLoading, isError, error, data } = useQuery({
 		queryKey: ['fines'],
 		queryFn: () => wordpress.getFines()
@@ -17,7 +19,7 @@ const Fines = () => {
 	if (data) return (
 		<Container className={styles.container}>
 			<Helmet>
-				<title>Система штрафов ТМС - ТМС</title>
+				<title>Система штрафов - {siteTitle}</title>
 			</Helmet>
 			<Title1>Система штрафов ТМС</Title1>
 			{data.map((fine) => <>

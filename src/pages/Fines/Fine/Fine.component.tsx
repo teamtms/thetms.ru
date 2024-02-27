@@ -5,7 +5,7 @@ import { PassportCard } from '@/components/PassportCard/PassportCard.component.t
 export const Fine = (props: FineProps) => {
 	return (
 		<Card size="large">
-			<Title2>{props.fine.title.rendered} </Title2>
+			<Title2><span dangerouslySetInnerHTML={{ __html: props.fine.title.rendered }}></span></Title2>
 			<div dangerouslySetInnerHTML={{ __html: props.fine.content.rendered }}></div>
 			<Title3>Сумма: {props.fine.acf.amount} руб ТМС</Title3>
 			<Title3>Номер: #{props.fine.id}</Title3>

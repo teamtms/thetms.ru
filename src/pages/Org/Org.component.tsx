@@ -2,12 +2,15 @@ import { Container } from '@/components/Container/Container.component'
 import Eval from '@/components/Eval/Eval.component'
 import { WpPassportUsername } from '@/components/PassportUsername/WpUsername.component'
 import { WpImage } from '@/components/WpImage/WpImage.component'
+import { useStore } from '@/hooks/useStore.hook'
 import { wordpress } from '@/services/wordpress'
 import { Button } from '@fluentui/react-components'
 import { useQuery } from '@tanstack/react-query'
+import { Helmet } from 'react-helmet-async'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Org = () => {
+	const { siteTitle } = useStore()
 	const { id } = useParams()
 	const navigate = useNavigate()
 	const { isLoading, data } = useQuery({
@@ -19,6 +22,9 @@ const Org = () => {
 		<div>
 			{isLoading ? 'Загрузка' : ''}
 			{data ? <Container className="min-h-[100vh]">
+				<Helmet>
+					<title>{data.title.rendered} в {data.acf.address.split(',')[0]} {siteTitle}</title>
+				</Helmet>
 				<Button onClick={() => navigate(-1)} appearance="outline" className=""><span className="text-[#fff]">назад</span></Button>
 				<WpImage imageId={data.acf.photo} className="mb-8"></WpImage>
 				<div className="flex gap-8 mb-8 items-start">

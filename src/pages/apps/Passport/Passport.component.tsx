@@ -4,6 +4,8 @@ import styles from './Passport.module.scss'
 import { Container } from '@/components/Container/Container.component'
 import { Link, useParams } from 'react-router-dom'
 import { InnerPassport } from './InnerPassport/InnerPassport.component'
+import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const request = async (url: string) => {
 	const response = await fetch(url)
@@ -13,6 +15,7 @@ const request = async (url: string) => {
 }
 
 const Passport = () => {
+	const { siteTitle } = useStore()
 	const { username } = useParams()
 	const { data, error, isLoading } = useQuery({
 		queryKey: [`passport-${username}`],
@@ -24,6 +27,9 @@ const Passport = () => {
 
 	return (
 		<div className={styles.wrapper}>
+			<Helmet>
+				<title>Паспорт {data[0].title.rendered} - {siteTitle}</title>
+			</Helmet>
 			<Container className={styles.container}>
 				<Link to="extended" className={styles.card}>
 					{username ?

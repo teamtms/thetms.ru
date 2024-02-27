@@ -1,13 +1,15 @@
 import { Container } from '@/components/Container/Container.component'
 import styles from './Documents.module.scss'
-import { Button, Card, Input, Spinner, Body1Strong } from '@fluentui/react-components';
+import { Button, Card, Input, Spinner, Body1Strong } from '@fluentui/react-components'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { wordpress } from '@/services/wordpress'
-import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component';
-import { Helmet } from 'react-helmet';
+import { AnimateLink } from '@/components/AnimateLink/AnimateLink.component'
+import { Helmet } from 'react-helmet'
+import { useStore } from '@/hooks/useStore.hook'
 
 const Documents = () => {
+	const { siteTitle } = useStore()
 	const naviate = useNavigate()
 	const params = new URL(location.href).searchParams
 	const search = params.get('search')
@@ -20,7 +22,7 @@ const Documents = () => {
 	return (
 		<Container className={styles.container}>
 			<Helmet>
-				<title>Искать документы - ТМС</title>
+				<title>Искать документы - {siteTitle}</title>
 			</Helmet>
 			<form onSubmit={(e) => {
 				e.preventDefault()

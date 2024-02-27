@@ -8,8 +8,11 @@ import { wordpress } from '@/services/wordpress'
 import { OrgCard } from '@/components/OrgCard/OrgCard.component'
 import { InnerPassport } from '../InnerPassport/InnerPassport.component'
 import { Button } from '@fluentui/react-components'
+import { Helmet } from 'react-helmet-async'
+import { useStore } from '@/hooks/useStore.hook'
 
 const ExtendedPassport = () => {
+	const { siteTitle } = useStore()
 	const { username } = useParams()
 	const { data, error, isLoading } = useQuery({
 		queryKey: [`passport-${username}`],
@@ -22,6 +25,9 @@ const ExtendedPassport = () => {
 
 	return (
 		<div className={styles.wrapper}>
+			<Helmet>
+				<title>Паспорт {data?.[0].title.rendered} - {siteTitle}</title>
+			</Helmet>
 			<Container className={styles.container}>
 				<Button onClick={() => navigate(-1)} appearance="outline" className=""><span className="text-[#fff]">назад</span></Button>
 				{username && data ? <>
