@@ -58,10 +58,10 @@ const Home = () => {
 				<h2 className="text-2xl">Моменты</h2>
 				<div className="grid gap-8 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 mt-4">
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-07_00.30.32.png" alt="" />
-					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.22.02.png" alt="" />
+					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-02-25_20.08.59.png" alt="" />
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.05.29.png" alt="" />
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.03.28.png" alt="" />
-					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-06_23.54.02.png" alt="" />
+					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/02/2024-02-25_16.35.11.png" alt="" />
 					<img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.06.41.png" alt="" />
 				</div>
 			</div>
