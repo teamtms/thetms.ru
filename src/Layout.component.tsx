@@ -24,6 +24,8 @@ export const Layout = () => {
 			<link rel="shortcut icon" href={data?.site_icon_url} type="image/png" />
 		</Helmet>
 		{error ? error.message : ''}
-		<Outlet></Outlet>
+		<div className="font-press-start-2p">
+			<Outlet></Outlet>
+		</div>
 	</>
 }

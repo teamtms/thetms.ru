@@ -11,6 +11,8 @@ import { IPwOrder } from '@/interfaces/PwOrder.interface'
 import { IPoster } from '@/interfaces/Poster.interface'
 import { ICity } from '@/interfaces/City.interface'
 import { ISiteInfo } from '@/interfaces/SiteInfo.interface'
+import { IMenu } from '@/interfaces/Menu.interface'
+import { IHomePage } from '@/interfaces/HomePage.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
@@ -35,4 +37,6 @@ export const wordpress = {
 	getPosters: async () => request<IPoster[]>(`${API}/poster`),
 	getPosterById: async (id: number) => request<IPoster>(`${API}/poster/${id}`),
 	getCityBySlug: async (slug: string) => request<ICity[]>(`${API}/city?slug=${slug}`),
+	getMenuBySlug: async (slug: string) => request<IMenu>(`https://www.fb24m.ru/tms/wp-json/menus/v1/menus/${slug}`),
+	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
 }
