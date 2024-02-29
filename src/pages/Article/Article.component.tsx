@@ -13,6 +13,7 @@ import { WpAvatar } from '@/components/Wp/WpAvatar/WpAvatar.component'
 import { WpUsername } from '@/components/WpUsername/WpUsername.component'
 import { WpCategory } from '@/components/Wp/WpCategory/WpCategory.component'
 import { useStore } from '@/hooks/useStore.hook'
+import { Likes } from './Likes/Likes.component'
 
 const Article = () => {
 	const { siteTitle } = useStore()
@@ -78,6 +79,7 @@ const Article = () => {
 								<WpCategory categoryId={data[0].categories[0]} />
 							</li>
 						</ul>
+						<Likes postId={data[0].id}></Likes>
 					</div>
 					<Eval dangerouslySetInnerHTML={{ __html: data[0].content.rendered }} />
 				</div>

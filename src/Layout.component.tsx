@@ -11,6 +11,11 @@ export const Layout = () => {
 		queryKey: ['site_info'],
 		queryFn: () => wordpress.getSiteInfo()
 	})
+	// const { data: head } = useQuery({
+	// 	queryKey: ['head'],
+	// 	queryFn: () => wordpress.getWpHead()
+	// })
+
 
 	useEffect(() => {
 		if (data && !siteTitle) {
@@ -22,6 +27,8 @@ export const Layout = () => {
 		<Helmet>
 			<title>{siteTitle}</title>
 			<link rel="shortcut icon" href={data?.site_icon_url} type="image/png" />
+
+			{/* {head ? head : ''} */}
 		</Helmet>
 		{error ? error.message : ''}
 		<div className="font-press-start-2p">

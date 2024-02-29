@@ -18,9 +18,12 @@ const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
 
 export const wordpress = {
+	getWpHead: async () => request<string>('https://fb24m.ru/tms/wp-json/myplugin/v1/wp_head', {}),
 	getSiteInfo: async () => request<ISiteInfo>('https://www.fb24m.ru/tms/wp-json/'),
 	getPosts: async (page: number = 1, per_page: number = 10) => request<IPost[]>(`${API}/posts?per_page=${per_page}&page=${page}`),
 	getPostBySlug: async (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`),
+	getRatesButtonsByPostId: async (id: number) => request<string>(`https://fb24m.ru/tms/wp-json/myplugin/v1/buttons/${id}`),
+	getRatesCountByPostId: async (id: number) => request<string>(`https://fb24m.ru/tms/wp-json/myplugin/v1/count/${id}`),
 	searchDocuments: async (search: string) => request<IDocument[]>(`${API}/document?search=${search}`),
 	getDocumentBySlug: async (slug: string) => request<IDocument[]>(`${API}/document?slug=${slug}`),
 	getFines: async () => request<IFine[]>(`${API}/fine`),
