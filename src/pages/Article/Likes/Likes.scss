@@ -1,0 +1,63 @@
+.kodex_buttons {
+	display: flex;
+	// gap: 8px;
+}
+
+.kodex_button {
+	cursor: pointer;
+	all: initial !important;
+	font-family: 'Press Start 2P', sans-serif !important;
+	display: inline-block !important;
+	font-size: 12px !important;
+	padding: 8px !important;
+	background-color: rgb(24 27 36) !important;
+	color: #fff !important;
+
+	display: flex !important;
+	align-items: center !important;
+
+	.icon {
+		display: none !important;
+	}
+
+	&:hover {
+		background-color: rgb(10 34 79) !important;
+	}
+
+	&_active .text::before {
+		font-variation-settings: 'FILL' 1, 'wght' 200 !important;
+	}
+}
+
+.kodex_like_button,
+.kodex_dislike_button {
+	.text {
+		font-size: 0 !important;
+		padding: 0 !important;
+		padding-right: 8px !important;
+	}
+
+	.counter {
+		padding: 0 !important;
+		padding-right: 4px !important;
+	}
+}
+
+.kodex_like_button {
+	.text::before {
+		content: 'thumb_up';
+		font-family: 'Material Symbols Rounded';
+		font-size: 20px;
+		font-variation-settings: 'wght' 200;
+	}
+}
+
+.kodex_dislike_button {
+
+	.text::before {
+		content: 'thumb_down';
+		font-family: 'Material Symbols Rounded';
+		font-size: 20px;
+		font-variation-settings: 'wght' 200;
+	}
+}

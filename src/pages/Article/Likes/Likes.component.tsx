@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import type { LikesProps } from './Likes.props.ts'
 import { wordpress } from '@/services/wordpress.ts'
+import './Likes.scss'
 
 export const Likes = (props: LikesProps) => {
 	const { isLoading: isButtonsLoading, data: buttons, error: buttonsError } = useQuery({
