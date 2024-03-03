@@ -1,5 +1,5 @@
 import { IFine } from '@/interfaces/Fine.interface'
-import { request } from '../functions/request'
+import { request, requestText } from '../functions/request'
 import type { IPost } from '../interfaces/Post.interface'
 import { IUser, IWpUser } from '@/interfaces/User.interface'
 import { IDocument } from '@/interfaces/Document.interface'
@@ -13,15 +13,18 @@ import { ICity } from '@/interfaces/City.interface'
 import { ISiteInfo } from '@/interfaces/SiteInfo.interface'
 import { IMenu } from '@/interfaces/Menu.interface'
 import { IHomePage } from '@/interfaces/HomePage.interface'
+import { IComment } from '@/interfaces/Comment.interface'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 export const TOKEN = 'fb24m/tms'
 
 export const wordpress = {
-	getWpHead: async () => request<string>('https://fb24m.ru/tms/wp-json/myplugin/v1/wp_head', {}),
+	getWpHead: async () => requestText('https://fb24m.ru/tms/wp-json/myplugin/v1/wp_head',),
 	getSiteInfo: async () => request<ISiteInfo>('https://www.fb24m.ru/tms/wp-json/'),
 	getPosts: async (page: number = 1, per_page: number = 10) => request<IPost[]>(`${API}/posts?per_page=${per_page}&page=${page}`),
 	getPostBySlug: async (slug: string) => request<IPost[]>(`${API}/posts?slug=${slug}`),
+	getCommentsByPostId: async (id: number) => request<IComment[]>(`${API}/comments?post=${id}`),
+
 	getRatesButtonsByPostId: async (id: number) => request<string>(`https://fb24m.ru/tms/wp-json/myplugin/v1/buttons/${id}`),
 	getRatesCountByPostId: async (id: number) => request<string>(`https://fb24m.ru/tms/wp-json/myplugin/v1/count/${id}`),
 	searchDocuments: async (search: string) => request<IDocument[]>(`${API}/document?search=${search}`),

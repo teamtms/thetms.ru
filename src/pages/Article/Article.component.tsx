@@ -14,12 +14,19 @@ import { WpUsername } from '@/components/WpUsername/WpUsername.component'
 import { WpCategory } from '@/components/Wp/WpCategory/WpCategory.component'
 import { useStore } from '@/hooks/useStore.hook'
 import { Likes } from './Likes/Likes.component'
+import { Comments } from './Comments/Comments.component'
+
+// function bytesToBase64(bytes: string) {
+// 	const binString = String.fromCodePoint(...bytes)
+// 	return btoa(binString)
+// }
 
 const Article = () => {
 	const { siteTitle } = useStore()
 	const params = useParams()
+
 	const { isLoading, isError, isSuccess, error, data } = useQuery({
-		queryKey: ['article'],
+		queryKey: ['article', params.slug],
 		queryFn: () => wordpress.getPostBySlug(params.slug ? params.slug : '')
 	})
 
@@ -83,6 +90,7 @@ const Article = () => {
 					</div>
 					<Eval dangerouslySetInnerHTML={{ __html: data[0].content.rendered }} />
 				</div>
+				<Comments postId={data[0].id}></Comments>
 			</>
 				: ''}
 		</Container >

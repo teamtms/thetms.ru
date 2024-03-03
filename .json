@@ -1,98 +1,84 @@
 [
 	{
-		"id": 676,
-		"date": "2024-02-27T12:19:30",
-		"date_gmt": "2024-02-27T09:19:30",
-		"guid": {
-			"rendered": "https:\/\/www.fb24m.ru\/tms\/?page_id=676"
-		},
-		"modified": "2024-02-27T12:19:30",
-		"modified_gmt": "2024-02-27T09:19:30",
-		"slug": "tms",
-		"status": "publish",
-		"type": "page",
-		"link": "https:\/\/www.fb24m.ru\/tms\/",
-		"title": {
-			"rendered": "\u0422\u041c\u0421"
-		},
-		"content": {
-			"rendered": "",
-			"protected": false
-		},
-		"excerpt": {
-			"rendered": "",
-			"protected": false
-		},
-		"author": 1,
-		"featured_media": 0,
+		"id": 4,
+		"post": 707,
 		"parent": 0,
-		"menu_order": 0,
-		"comment_status": "closed",
-		"ping_status": "closed",
-		"template": "",
-		"meta": {
-			"_acf_changed": false,
-			"footnotes": ""
+		"author": 0,
+		"author_name": "fb24m",
+		"author_url": "",
+		"date": "2024-03-01T01:20:36",
+		"date_gmt": "2024-02-29T22:20:36",
+		"content": {
+			"rendered": "<p>\u044d\u043c\u043c \u0436\u043e\u0441\u043a\u0430\u044f \u0441\u0442\u0430\u0442\u044c\u044f \u0430\u0433\u0430\u0430<\/p>\n"
 		},
-		"acf": {
-			"title": "\u0414\u043e\u0431\u0440\u043e \u043f\u043e\u0436\u0430\u043b\u043e\u0432\u0430\u0442\u044c \u0432 \u0410\u0414",
-			"description": "\u041a\u0442\u043e-\u0442\u043e \u043d\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u044d\u0442\u043e \u043c\u0435\u0441\u0442\u043e \u0422\u041c\u0421, \u043d\u043e \u0441\u043b\u043e\u0432\u043e \u0430\u0434 \u0441\u044e\u0434\u0430 \u043f\u043e\u0434\u0445\u043e\u0434\u0438\u0442 \u0442\u043e\u0447\u043d\u043e \u0431\u043e\u043b\u044c\u0448\u0435",
-			"ip": "mc.thetms.ru",
-			"pluses": "\u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u044b\u0439 \u0433\u0435\u0439\u043f\u043b\u0435\u0439\r\n\u043e\u0442\u0437\u044b\u0432\u0447\u0438\u0432\u0430\u044f \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f\r\n\u0442\u043e\u043f\u0430\u0432\u044b\u0439 \u0441\u044e\u0436\u0435\u0442",
-			"stats": "3: \u0433\u043e\u0434\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0443\r\n100+: \u0437\u0434\u0430\u043d\u0438\u0439 \u043f\u043e\u0441\u0442\u0440\u043e\u0435\u043d\u043e\r\n10+: \u043c\u043e\u0434\u043e\u0432 \u043d\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0435\r\n0: \u0434\u043d\u0435\u0439 \u0431\u0435\u0437 \u0442\u0443\u043f\u0430\u0441\u0442\u0438",
-			"moments": null,
-			"orgs": null
+		"link": "https:\/\/www.fb24m.ru\/tms\/otkrylsya-pervyj-avtoservis-v-kubecity\/#comment-4",
+		"status": "approved",
+		"type": "comment",
+		"author_avatar_urls": {
+			"24": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=24&d=mm&r=g",
+			"48": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=48&d=mm&r=g",
+			"96": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=96&d=mm&r=g"
 		},
+		"meta": [],
+		"acf": [],
 		"_links": {
 			"self": [
 				{
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/pages\/676"
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/comments\/4"
 				}
 			],
 			"collection": [
 				{
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/pages"
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/comments"
 				}
 			],
-			"about": [
-				{
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/types\/page"
-				}
-			],
-			"author": [
+			"up": [
 				{
 					"embeddable": true,
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/users\/1"
+					"post_type": "post",
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/posts\/707"
+				}
+			]
+		}
+	},
+	{
+		"id": 3,
+		"post": 707,
+		"parent": 0,
+		"author": 0,
+		"author_name": "\u043d\u0435\u0442\u0443 \u0442\u0430\u043a\u043e\u0432\u0430",
+		"author_url": "",
+		"date": "2024-03-01T01:18:50",
+		"date_gmt": "2024-02-29T22:18:50",
+		"content": {
+			"rendered": "<p>\u043a\u0440\u0443\u0442\u043e\u0439<\/p>\n"
+		},
+		"link": "https:\/\/www.fb24m.ru\/tms\/otkrylsya-pervyj-avtoservis-v-kubecity\/#comment-3",
+		"status": "approved",
+		"type": "comment",
+		"author_avatar_urls": {
+			"24": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=24&d=mm&r=g",
+			"48": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=48&d=mm&r=g",
+			"96": "https:\/\/secure.gravatar.com\/avatar\/80c68aa275d0ff54531298bf51be1e07?s=96&d=mm&r=g"
+		},
+		"meta": [],
+		"acf": [],
+		"_links": {
+			"self": [
+				{
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/comments\/3"
 				}
 			],
-			"replies": [
+			"collection": [
+				{
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/comments"
+				}
+			],
+			"up": [
 				{
 					"embeddable": true,
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/comments?post=676"
-				}
-			],
-			"version-history": [
-				{
-					"count": 1,
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/pages\/676\/revisions"
-				}
-			],
-			"predecessor-version": [
-				{
-					"id": 677,
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/pages\/676\/revisions\/677"
-				}
-			],
-			"wp:attachment": [
-				{
-					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/media?parent=676"
-				}
-			],
-			"curies": [
-				{
-					"name": "wp",
-					"href": "https:\/\/api.w.org\/{rel}",
-					"templated": true
+					"post_type": "post",
+					"href": "https:\/\/www.fb24m.ru\/tms\/wp-json\/wp\/v2\/posts\/707"
 				}
 			]
 		}

@@ -26,13 +26,12 @@ export const Header = () => {
 					{isLoading ? <Spinner /> : ''}
 					{data
 						? <ul className="flex">
-							{data.items.map((item) => <>
-								<li className="[font-weight:400] text-xs py-2 px-3 hover:bg-slate-100">
+							{data.items.map((item) =>
+								<li key={item.ID} className="[font-weight:400] text-xs py-2 px-3 hover:bg-slate-100">
 									{item.url.includes('[tms]')
 										? <AnimateLink href={`${item.url.split('[tms]')[1]}`}>{item.title}</AnimateLink>
-										: <a href={item.url}></a>}
-								</li>
-							</>)}
+										: <a href={item.url}>{item.title}</a>}
+								</li>)}
 						</ul>
 						: ''}
 				</div>

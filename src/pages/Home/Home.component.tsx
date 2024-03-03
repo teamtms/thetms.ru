@@ -1,5 +1,6 @@
 // import styles from './Home.module.scss'
 import { Container } from '@/components/Container/Container.component'
+import { Post } from '@/components/Post/Post.component'
 import { WpImage } from '@/components/WpImage/WpImage.component'
 import { useStore } from '@/hooks/useStore.hook'
 import { wordpress } from '@/services/wordpress'
@@ -8,14 +9,37 @@ import { useQuery } from '@tanstack/react-query'
 import { lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
 
+import { useKeenSlider } from 'keen-slider/react'
+import 'keen-slider/keen-slider.scss'
+import { KeenSliderInstance } from 'keen-slider'
+
 const Eval = lazy(() => import('@/components/Eval/Eval.component'))
 const LatestNews = lazy(() => import('./LatestNews/LatestNews.component'))
 
+const autoplay = (slider: KeenSliderInstance) => {
+	setInterval(() => {
+		slider.next()
+	}, 5000)
+}
+
 const Home = () => {
 	const { siteTitle } = useStore()
+
+	const [sliderRef] = useKeenSlider({
+		slides: {
+			perView: 3,
+			spacing: 32
+		}
+	}, [autoplay])
+
 	const { isLoading, data, error } = useQuery({
 		queryKey: ['page_home'],
 		queryFn: () => wordpress.getPageBySlug('tms')
+	})
+
+	const { data: posts, error: postsError, isLoading: isPostsLoading } = useQuery({
+		queryKey: ['posts'],
+		queryFn: () => wordpress.getPosts(1, 10),
 	})
 
 	return (
@@ -37,7 +61,7 @@ const Home = () => {
 					<Eval className='mb-2 mt-4'>
 						<ol>
 							{data[0].acf.pluses.split('\n').map((item) =>
-								<li>{item}</li>
+								<li key={item}>{item}</li>
 							)}
 						</ol>
 					</Eval>
@@ -46,7 +70,7 @@ const Home = () => {
 						<h2 className="text-2xl">Статистика</h2>
 						<div className="flex flex-wrap gap-y-6 sm:gap-10 mt-4 ">
 							{data[0].acf.stats.split('\n').map((item) =>
-								<div className="border-s-2 pt-1 pb-1 pl-3 basis-36">
+								<div key={item} className="border-s-2 pt-1 pb-1 pl-3 basis-36">
 									<h3 className="text-xl">{item.split(':')[0]}</h3>
 									<p className="flex flex-col justify-end h-8 text-xs">{item.split(':')[1]}</p>
 								</div>
@@ -55,6 +79,16 @@ const Home = () => {
 					</div>
 					{localStorage['include-latest-news'] === 'include-latest-news' ?
 						<LatestNews /> : ''}
+
+					{postsError ? postsError.message : ''}
+					{isPostsLoading ? <Spinner /> : ''}
+					{posts?.length
+						? <>
+							<h2 className="text-2xl mt-16">Последние новости</h2>
+							<div className="keen-slider mt-4" ref={sliderRef}>
+								{posts.map((item) => <div key={item.id} className="keen-slider__slide"><Post {...item} /></div>)}
+							</div></>
+						: ''}
 
 					<div className="mt-16">
 						<h2 className="text-2xl">Моменты</h2>
